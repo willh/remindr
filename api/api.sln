@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Mvc", "Remindr.Mvc\Remindr.Mvc.csproj", "{F1785BDA-4368-44A3-B834-284B307878B9}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = api.vsmdi
@@ -33,10 +35,6 @@ Global
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.Build.0 = Release|Any CPU
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,10 @@ Global
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
