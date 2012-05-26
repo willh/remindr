@@ -17,9 +17,7 @@ namespace api
 
         public override void Configure(Container container)
         {
-            Routes
-              .Add<RemindrService>("/remindr")
-              .Add<RemindrService>("/remindr/{SendTo}/{Message}");
+            
         }
     }
 }
