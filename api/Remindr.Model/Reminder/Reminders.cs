@@ -19,6 +19,21 @@ namespace Remindr.Model
     /// </summary>
     public static class Reminders
     {
+        public static List<Reminder> GetRemindersForMobileNumber(string mobileNumber)
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            QueryComplete mongoQuery = Query.EQ("_mobileNumber", mobileNumber);
+            MongoCursor<Reminder> mongoCursor = reminderCollection.Find(mongoQuery);
+            List<Reminder> reminderReturnList = new List<Reminder>();
+            foreach (Reminder reminder in mongoCursor)
+            {
+                reminderReturnList.Add(reminder);                
+            }
+
+            return reminderReturnList;
+        }
+
+
         public static List<Reminder> GetRemindersForDate(DateTime queryDate)
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();

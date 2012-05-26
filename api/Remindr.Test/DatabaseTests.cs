@@ -32,10 +32,10 @@ namespace Remindr.Test
         [TestMethod]
         public void CanAddObjectToDatabase()
         {
-            Reminder testReminder = new Reminder("07812496877", "test message", DateTime.Now, "daily", null, DateTime.Now);
+            Reminder testReminder = new Reminder("+447812496877", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now);
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
-            var query = Query.EQ("_mobileNumber", "07812496877");
+            var query = Query.EQ("_mobileNumber", "+447812496877");
             MongoCursor<Reminder> reminderCursor = reminderCollection.Find(query);
             Assert.AreEqual(1, reminderCursor.Count());
 
