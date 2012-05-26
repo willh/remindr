@@ -1,3 +1,10 @@
 body {
     margin:40px;
 }
+
+.btn-jumbo {
+    margin-bottom: 20px;
+    font-size: 60px;
+    line-height: 80px;
+    width: 100%;
+}
