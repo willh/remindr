@@ -9,5 +9,9 @@ object Prescriptions extends Controller {
   }
 
   def reminder = TODO
+  // call API to:
+  //  create scheduled SMS to be sent on reminder date
+  //  with body of reminder message as text
+  //  to recipient of prescription mobile
 
 }
