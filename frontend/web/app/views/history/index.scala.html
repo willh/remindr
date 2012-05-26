@@ -1,21 +1,38 @@
-@(message: String)
+@(history: List[kainos.nhs.hackday.model.History])(implicit flash: Flash)
 
 @main("Reminder") {
+
+    @if(flash.data.contains("error")){
+        <div class="alert alert-error">@flash.get("error")</div>
+    }
+
     <h1>View History</h1>
     <h2>Message scheduling history for Local Hospital Trust</h2>
+
+    @helper.form(action = routes.History.byNumber, 'class -> "pull-right"){
+      <label>Filter by Phone Number</label>
+      <input type="text" name="number" class="span3" placeholder="Phone Number">
+      <input type="submit" class="btn" value="Filter" style="margin-top:-8px;"/>
+    }
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th></th>
-                <th></th>
+                <th>User</th>
+                <th>Number</th>
+                <th>Kind</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+            @history.map { entry =>
+                <tr>
+                    <td>@entry.user</td>
+                    <td>@entry.number</td>
+                    <td>@entry.kind</td>
+                    <td>@entry.date</td>
+                </tr>
+            }
         </tbody>
     </table>
 }
