@@ -19,13 +19,14 @@ namespace Remindr.Model.Database
     /// </summary>
     public class Reminder
     {
+        // accessor
         private ObjectId _Id;
         private string _mobileNumber;
         private string _message;
-        DateTime _nextScheduledReminder;
-        string _schedule;
-        string[] _customSchedule;
-        DateTime _endReminderDate;
+        public DateTime _nextScheduledReminder { get; set; }
+        public string _schedule { get; set; }
+        public string[] _customSchedule { get; set; }
+        public DateTime _endReminderDate { get; set; }
         
         public Reminder(string mobileNumber, string message, DateTime nextScheduledReminder, string schedule,
                              string[] customSchedule, DateTime endReminderDate)
@@ -47,6 +48,13 @@ namespace Remindr.Model.Database
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();
             reminderCollection.Save(this);
+        }
+
+        public void DeleteFromDb()
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            var query = Query.EQ("_Id", _Id);
+            reminderCollection.Remove(query);
         }
     }
 

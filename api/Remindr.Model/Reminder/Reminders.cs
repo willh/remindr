@@ -28,13 +28,40 @@ namespace Remindr.Model
             foreach (Reminder reminder in mongoCursor)
             {
                 reminderReturnList.Add(reminder);
+                CalculateNextReminderDate(reminder);
             }
+            
             return reminderReturnList;
+        }
+
+        private static void CalculateNextReminderDate(Reminder reminder)
+        {
+            if (reminder._schedule.Equals("daily"))
+            {
+                reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
+            }
+            else if (reminder._schedule.Equals("weekly"))
+            {
+                reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(7);
+            }
+            else if (reminder._schedule.Equals("custom"))
+            {
+                // TODO
+            }
+
+            if (reminder._schedule == null || reminder._nextScheduledReminder > reminder._endReminderDate)
+            {
+                reminder.DeleteFromDb();
+            }
+            else
+            {
+                reminder.SaveToDb();
+            }
         }
 
         private static MongoCollection<Reminder> GetCollection()
         {
             return MongoAccess.GetReminderCollection();
-        }
+        }     
     }
 }
