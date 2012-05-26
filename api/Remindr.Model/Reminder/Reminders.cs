@@ -34,7 +34,7 @@ namespace Remindr.Model
             return reminderReturnList;
         }
 
-        private static void CalculateNextReminderDate(Reminder reminder)
+        public static void CalculateNextReminderDate(Reminder reminder)
         {
             if (reminder._schedule.Equals("daily"))
             {
