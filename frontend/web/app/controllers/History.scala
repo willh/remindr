@@ -28,4 +28,15 @@ object History extends Controller {
       "message" -> "Reminder cancelled"
     )
   }
+
+  def view(id: Int) = Action {
+    Api.get(id).map { item =>
+      Ok(views.html.history.view(item))
+    }.getOrElse {
+      Redirect(routes.History.index()).flashing(
+        "error" -> "Reminder does not exist"
+      )
+    }
+
+  }
 }
