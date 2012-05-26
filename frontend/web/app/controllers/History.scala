@@ -24,4 +24,10 @@ object History extends Controller {
     )
   }
 
+  def cancel(id: Int) = Action {
+    Api.cancel(id)
+    Redirect(routes.History.index()).flashing(
+      "message" -> "Reminder cancelled"
+    )
+  }
 }

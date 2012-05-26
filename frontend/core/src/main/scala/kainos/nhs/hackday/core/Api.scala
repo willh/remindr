@@ -6,24 +6,19 @@ import java.util.Date
 
 object Api {
 
-  def history : List[History] = List(
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date),
-    History("Dr Foster", "02890 775317", Kind.Appointment, new Date)
+  var data = List(
+    History(0, "Dr Foster", "02890 775317", Kind.Appointment, new Date),
+    History(1, "Dr Foster", "02890 775317", Kind.Medication, new Date),
+    History(2, "Dr Foster", "02890 775317", Kind.Prescription, new Date),
+    History(3, "Dr Finnius", "02890 221619", Kind.Appointment, new Date),
+    History(4, "Dr Newton", "02890 123456", Kind.Appointment, new Date)
   )
 
-  def history(number: String) : List[History] = history.filter(_.number.equals(number))
+  def history : List[History] = data
+
+  def history(number: String) : List[History] = data.filter(_.number.equals(number))
+
+  def cancel(id: Int) {
+    data = data.filterNot(_.id == id)
+  }
 }

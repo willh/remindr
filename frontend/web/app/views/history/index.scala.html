@@ -2,8 +2,12 @@
 
 @main("Reminder") {
 
-    @if(flash.data.contains("error")){
-        <div class="alert alert-error">@flash.get("error")</div>
+    @flash.get("error").map { msg =>
+        <div class="alert alert-error">@msg</div>
+    }
+
+    @flash.get("message").map { msg =>
+        <div class="alert alert-message">@msg</div>
     }
 
     <h1>View History</h1>
@@ -22,6 +26,7 @@
                 <th>Number</th>
                 <th>Kind</th>
                 <th>Date</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +36,20 @@
                     <td>@entry.number</td>
                     <td>@entry.kind</td>
                     <td>@entry.date</td>
+                    <td>
+                        @helper.form(action = routes.History.cancel(entry.id), 'style -> "margin-bottom:0px;", 'class -> "cancel-form"){
+                            <input type="submit" class="btn btn-mini btn-danger" value="Cancel"/>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(".cancel-form").submit(function(e){
+            if(!confirm("Are you sure?")){
+                return false;
+            }
+        });
+    </script>
 }
