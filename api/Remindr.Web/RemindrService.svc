@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="api.RemindrService" CodeBehind="RemindrService.svc.cs" %>
