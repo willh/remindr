@@ -19,10 +19,9 @@ namespace Remindr.Model.Database
     /// </summary>
     public class Reminder
     {
-        // accessor
-        private ObjectId _Id;
-        private string _mobileNumber;
-        private string _message;
+        public ObjectId _id { get; set; }
+        public string _mobileNumber { get; set; }
+        public string _message { get; set; }
         public DateTime _nextScheduledReminder { get; set; }
         public string _schedule { get; set; }
         public string[] _customSchedule { get; set; }
@@ -44,6 +43,12 @@ namespace Remindr.Model.Database
             return MongoAccess.GetReminderCollection();
         }
 
+        public void InsertToDb()
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            reminderCollection.Insert(this);
+        }
+
         public void SaveToDb()
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();
@@ -53,7 +58,7 @@ namespace Remindr.Model.Database
         public void DeleteFromDb()
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();
-            var query = Query.EQ("_Id", _Id);
+            var query = Query.EQ("_id", _id);
             reminderCollection.Remove(query);
         }
     }

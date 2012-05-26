@@ -49,6 +49,7 @@
     <Compile Include="Database\MongoAccess.cs" />
     <Compile Include="Database\Reminder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reminder\Reminders.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

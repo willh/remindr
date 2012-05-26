@@ -49,7 +49,7 @@ namespace Remindr.Model
                 // TODO
             }
 
-            if (reminder._schedule == null || reminder._nextScheduledReminder > reminder._endReminderDate)
+            if (reminder._schedule == null || reminder._endReminderDate == null || reminder._nextScheduledReminder > reminder._endReminderDate)
             {
                 reminder.DeleteFromDb();
             }
