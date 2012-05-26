@@ -18,8 +18,7 @@ namespace api
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            new RemindrServiceAppHost().Init();
- 
+
             ISchedulerFactory factory = new StdSchedulerFactory();
             var scheduler = factory.GetScheduler();
             scheduler.Start();
