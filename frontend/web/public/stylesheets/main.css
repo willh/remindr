@@ -8,3 +8,8 @@ body {
     line-height: 80px;
     width: 100%;
 }
+
+textarea {
+    display: block;
+    width: 300px;
+}

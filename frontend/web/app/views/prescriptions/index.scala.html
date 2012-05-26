@@ -1,0 +1,14 @@
+
+@main("Reminder") {
+  @helper.form(action = routes.Prescriptions.reminder, 'class -> "well"){
+  <label for="prescription-mobile" id="prescription-mobile-label">Mobile Number</label>
+  <input type="text" name="prescription-mobile" id="prescription-mobile" class="span3" />
+  <label for="prescription-reminder-date" id="prescription-reminder-date-label">Reminder Date</label>
+  <input type="text" name="prescription-reminder-date" id="prescription-reminder-date" class="span3" />
+
+  <label for="prescription-reminder-message" id="prescription-reminder-message-label">Reminder Message (max 160 chars)</label>
+  <textarea id="prescription-reminder-message" name="prescription-reminder-message" rows="4" cols="80">{Title} {First Name}, your prescription for {item} ends on {end date}. Please go to your pharmacy for a repeat prescription before {end date}.</textarea>
+  <input type="submit" id="prescription-submit" value="Schedule Reminder" class="btn-primary" />
+  }
+
+}
