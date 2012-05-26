@@ -12,6 +12,7 @@ namespace Remindr.Model.Database
     using System.Text;
     using MongoDB.Bson;
     using MongoDB.Driver;
+    using MongoDB.Driver.Builders;
 
     /// <summary>
     /// TODO: Update summary.
@@ -37,10 +38,15 @@ namespace Remindr.Model.Database
             _endReminderDate = endReminderDate;
         }
 
+        private MongoCollection<Reminder> GetCollection()
+        {
+            return MongoAccess.GetReminderCollection();
+        }
+
         public void SaveToDb()
         {
-            MongoCollection<Reminder> reminderCollection = MongoAccess._mongoDatabase.GetCollection<Reminder>("Reminder");
-            reminderCollection.Insert(this);
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            reminderCollection.Save(this);
         }
     }
 
