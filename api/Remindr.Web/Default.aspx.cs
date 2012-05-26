@@ -11,7 +11,8 @@ namespace api
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string test = Remindr.Model.Database.MongoAccess.test();
+            
         }
     }
 }
