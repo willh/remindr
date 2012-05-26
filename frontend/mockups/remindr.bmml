@@ -1,0 +1,258 @@
+<mockup version="1.0" skin="sketch" measuredW="2908" measuredH="435" mockupW="2864" mockupH="418">
+  <controls>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="527" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%20-%20Appointment%20Reminder%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::FieldSet" x="602" y="112" w="300" h="278" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Appointment</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextArea" x="611" y="273" w="283" h="74" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>You%20have%20an%20appointment%20booked%20with%20radiology%20on%2015/6/2012%20at%204%3A30pm%20with%20Dr%20Foster%20-%20Contact%20Local%20Hospital%20Trust%20on%20012%2044556789%20for%20info</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="619" y="151" w="124" h="-1" measuredW="107" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0781%20234%205678</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::DateChooser" x="760" y="152" w="129" h="-1" measuredW="105" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>8/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="1004" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%20-%20Medication%20Reminder%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::FieldSet" x="1079" y="112" w="300" h="278" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Medication</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Button" x="1235" y="352" w="135" h="27" measuredW="135" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Schedule%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Label" x="760" y="126" w="-1" h="-1" measuredW="109" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Appointment%20Date</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Label" x="619" y="126" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mobile%20Number</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::TextInput" x="1094" y="153" w="124" h="-1" measuredW="107" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0781%20234%205678</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::DateChooser" x="1235" y="154" w="129" h="-1" measuredW="105" measuredH="25" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>8/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="1235" y="128" w="-1" h="-1" measuredW="92" measuredH="21" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20start</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="1102" y="128" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mobile%20Number</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="611" y="249" w="-1" h="-1" measuredW="213" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20Message%20%28max%20160%20chars%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="1105" y="184" w="-1" h="-1" measuredW="69" measuredH="63" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28o%29%20daily%0A%28%20%29%20weekly%0A%28%20%29%20custom</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::CheckBox" x="619" y="193" w="-1" h="-1" measuredW="132" measuredH="22" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>1%20week%20in%20advance</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::CheckBox" x="621" y="215" w="-1" h="-1" measuredW="121" measuredH="22" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>1%20day%20in%20advance</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::DateChooser" x="1234" y="208" w="129" h="-1" measuredW="105" measuredH="25" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>8/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Label" x="1234" y="182" w="-1" h="-1" measuredW="88" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20end</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="1088" y="294" w="283" h="50" measuredW="200" measuredH="140" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Take%2050mg%20Pillazepam%20twice%20a%20day%20with%20meals</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="1088" y="273" w="-1" h="-1" measuredW="213" measuredH="21" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20Message%20%28max%20160%20chars%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="44" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::FieldSet" x="142" y="126" w="254" h="221" measuredW="200" measuredH="170" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20Reminder%20Service</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Button" x="188" y="246" w="162" h="27" measuredW="137" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Repeat%20Prescription</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Button" x="188" y="202" w="162" h="27" measuredW="143" measuredH="27" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Medication%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Button" x="188" y="160" w="162" h="27" measuredW="153" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Appointment%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="51" y="97" w="-1" h="-1" measuredW="258" measuredH="21" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Logged%20in%20as%3A%20Dr%20Foster%2C%20Local%20Hospital%20Trust</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="188" y="288" w="162" h="27" measuredW="94" measuredH="27" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>View%20History</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Button" x="760" y="352" w="135" h="27" measuredW="135" measuredH="27" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Schedule%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1129" y="250" w="100" h="22" measuredW="96" measuredH="27" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>10</size>
+        <state>disabled</state>
+        <text>custom%20schedule</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="1481" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%20-%20Prescription%20Reminder%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::FieldSet" x="1556" y="112" w="300" h="278" measuredW="200" measuredH="170" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Repeat%20Prescription</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::TextInput" x="1571" y="157" w="124" h="-1" measuredW="107" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0781%20234%205678</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::DateChooser" x="1712" y="158" w="129" h="-1" measuredW="105" measuredH="25" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>8/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="1712" y="132" w="-1" h="-1" measuredW="94" measuredH="21" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20Date</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Label" x="1571" y="132" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Mobile%20Number</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::TextArea" x="1565" y="222" w="283" h="66" measuredW="200" measuredH="140" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Your%20prescription%20for%2050mg%20Pillazepam%20ends%20on%2014/6/2012.%20Please%20go%20to%20your%20pharmacy%20for%20a%20repeat%20prescription%20before%2015/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="1565" y="201" w="-1" h="-1" measuredW="213" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20Message%20%28max%20160%20chars%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Button" x="1712" y="297" w="135" h="27" measuredW="135" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Schedule%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="1968" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%20-%20View%20History%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::FieldSet" x="1997" y="112" w="392" h="278" measuredW="200" measuredH="170" zOrder="41" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>View%20History</text>
+      </controlProperties>
+    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::DataGrid" x="2014" y="187" w="-1" h="-1" measuredW="359" measuredH="145" zOrder="42" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>User%20%5Ev%2C%20Number%2C%20Type%2C%20Date%20%5Ev%0ADr%20Foster%2C%20+447829129239%2C%20%5BAppointment%5D%2C%2012/5/2012%0ADr%20Foster%2C%20+447832432426%2C%20%5BPrescription%5D%2C%2012/5/2012%0ADr%20Who%2C%20+44782348949%2C%20%5BMedication%5D%2C%2014/5/2012%0ADr%20Who%2C%20+44782110921%2C%20%5BAppointment%5D%2C%2012/5/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Label" x="2014" y="145" w="-1" h="-1" measuredW="293" measuredH="21" zOrder="43" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Message%20scheduling%20history%20for%20Local%20Hospital%20Trust</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="2458" y="17" w="450" h="418" measuredW="450" measuredH="400" zOrder="44" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Remindr%20-%20View%20Scheduled%20Reminder%0Ahttp%3A//url</text>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::FieldSet" x="2517" y="112" w="333" h="267" measuredW="200" measuredH="170" zOrder="45" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>View%20Reminder</text>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Label" x="2532" y="139" w="-1" h="-1" measuredW="270" measuredH="21" zOrder="46" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Appointment%20reminder%20scheduled%20for%208/6/2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Label" x="2532" y="163" w="270" h="39" measuredW="365" measuredH="21" zOrder="47" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Reminder%20sent%20to%20+447829129239%20on%2026/5/2012%20at%2012%3A15pm%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Label" x="2547" y="215" w="272" h="72" measuredW="845" measuredH="21" zOrder="48" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>_You%20have%20an%20appointment%20booked%20with%20radiology%20on%2015/6/2012%20at%204%3A30pm%20with%20Dr%20Foster%20-%20Contact%20Local%20Hospital%20Trust%20on%20012%2044556789%20for%20info_</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Button" x="2532" y="306" w="-1" h="-1" measuredW="122" measuredH="27" zOrder="49" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Cancel%20Reminder</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
