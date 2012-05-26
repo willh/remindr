@@ -26,9 +26,10 @@ namespace Remindr.Model.Database
         public string _schedule { get; set; }
         public string[] _customSchedule { get; set; }
         public DateTime _endReminderDate { get; set; }
+        public string _kind { get; set; }
         
         public Reminder(string mobileNumber, string message, DateTime nextScheduledReminder, string schedule,
-                             string[] customSchedule, DateTime endReminderDate)
+                             string[] customSchedule, DateTime endReminderDate, string kind)
         {            
             _mobileNumber = mobileNumber;
             _message = message;
@@ -36,6 +37,7 @@ namespace Remindr.Model.Database
             _schedule = schedule;
             _customSchedule = customSchedule;
             _endReminderDate = endReminderDate;
+            _kind = kind;
         }
 
         private MongoCollection<Reminder> GetCollection()
@@ -43,10 +45,11 @@ namespace Remindr.Model.Database
             return MongoAccess.GetReminderCollection();
         }
 
-        public void InsertToDb()
+        public string InsertToDb()
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();
             reminderCollection.Insert(this);
+            return _id.ToString();
         }
 
         public void SaveToDb()
