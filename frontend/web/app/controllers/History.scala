@@ -17,9 +17,7 @@ object History extends Controller {
 
   def byNumber = Action { implicit request =>
     phone.bindFromRequest.fold(
-      errors => Redirect(routes.History.index()).flashing(
-        "error" -> "You must provide a number"
-      ),
+      errors => Ok(views.html.history.index(Api.history)),
       number => Ok(views.html.history.index(Api.history(number)))
     )
   }
@@ -29,5 +27,16 @@ object History extends Controller {
     Redirect(routes.History.index()).flashing(
       "message" -> "Reminder cancelled"
     )
+  }
+
+  def view(id: Int) = Action {
+    Api.get(id).map { item =>
+      Ok(views.html.history.view(item))
+    }.getOrElse {
+      Redirect(routes.History.index()).flashing(
+        "error" -> "Reminder does not exist"
+      )
+    }
+
   }
 }
