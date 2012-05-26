@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using api.Scheduler;
 using Funq;
+using Quartz;
+using Quartz.Impl;
 using ServiceStack.WebHost.Endpoints;
 
 namespace api
@@ -34,6 +37,15 @@ namespace api
         {
             //new RemindrServiceAppHost().Init();
             new HelloAppHost().Init();
+
+            ISchedulerFactory factory = new StdSchedulerFactory();
+            var scheduler = factory.GetScheduler();
+            scheduler.Start();
+
+            // Change this later to check for all implementations of a marker iterface like IScheduleJobs
+            var perMinuteScheduler = new PerMinuteScheduler();
+            perMinuteScheduler.Schedule(scheduler);
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

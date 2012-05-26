@@ -20,6 +20,11 @@ namespace Remindr.Model.Database
     public static class MongoAccess
     {            
         private static MongoServer _mongoServer = MongoServer.Create(@"mongodb://RemindrUser:1Password2@staff.mongohq.com:10001/");        
-        public static MongoDatabase _mongoDatabase = _mongoServer.GetDatabase("Remindr");      
-    }
+        private static MongoDatabase _mongoDatabase = _mongoServer.GetDatabase("Remindr");
+
+        public static MongoCollection<Reminder> GetReminderCollection()
+        {
+            return _mongoDatabase.GetCollection<Reminder>("Reminder");            
+        }
+    }    
 }

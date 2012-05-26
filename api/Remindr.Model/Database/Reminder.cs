@@ -12,19 +12,20 @@ namespace Remindr.Model.Database
     using System.Text;
     using MongoDB.Bson;
     using MongoDB.Driver;
+    using MongoDB.Driver.Builders;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class Reminder
     {
-        private ObjectId _Id;
-        private string _mobileNumber;
-        private string _message;
-        DateTime _nextScheduledReminder;
-        string _schedule;
-        string[] _customSchedule;
-        DateTime _endReminderDate;
+        public ObjectId _id { get; set; }
+        public string _mobileNumber { get; set; }
+        public string _message { get; set; }
+        public DateTime _nextScheduledReminder { get; set; }
+        public string _schedule { get; set; }
+        public string[] _customSchedule { get; set; }
+        public DateTime _endReminderDate { get; set; }
         
         public Reminder(string mobileNumber, string message, DateTime nextScheduledReminder, string schedule,
                              string[] customSchedule, DateTime endReminderDate)
@@ -37,10 +38,28 @@ namespace Remindr.Model.Database
             _endReminderDate = endReminderDate;
         }
 
+        private MongoCollection<Reminder> GetCollection()
+        {
+            return MongoAccess.GetReminderCollection();
+        }
+
+        public void InsertToDb()
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            reminderCollection.Insert(this);
+        }
+
         public void SaveToDb()
         {
-            MongoCollection<Reminder> reminderCollection = MongoAccess._mongoDatabase.GetCollection<Reminder>("Reminder");
-            reminderCollection.Insert(this);
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            reminderCollection.Save(this);
+        }
+
+        public void DeleteFromDb()
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            var query = Query.EQ("_id", _id);
+            reminderCollection.Remove(query);
         }
     }
 
