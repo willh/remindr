@@ -77,6 +77,38 @@ namespace Remindr.Model
         private static MongoCollection<Reminder> GetCollection()
         {
             return MongoAccess.GetReminderCollection();
-        }     
+        }
+
+        private static MongoCollection<ReminderLog> GetLogCollection()
+        {
+            return MongoAccess.GetReminderLogCollection();
+        }
+
+        public static List<ReminderLog> GetHistoryForNumber(string mobileNumber)
+        {
+            MongoCollection<ReminderLog> reminderLogCollection = GetLogCollection();
+            QueryComplete mongoQuery = Query.EQ("_mobileNumber", mobileNumber);
+            MongoCursor<ReminderLog> mongoCursor = reminderLogCollection.Find(mongoQuery);
+            List<ReminderLog> reminderReturnList = new List<ReminderLog>();
+            foreach (ReminderLog reminder in mongoCursor)
+            {
+                reminderReturnList.Add(reminder);                
+            }
+
+            return reminderReturnList;
+        }
+
+        public static List<Reminder> GetPendingReminders()
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            MongoCursor<Reminder> mongoCursor = reminderCollection.FindAll();
+            List<Reminder> reminderReturnList = new List<Reminder>();
+            foreach (Reminder reminder in mongoCursor)
+            {
+                reminderReturnList.Add(reminder);
+            }
+
+            return reminderReturnList;
+        }
     }
 }

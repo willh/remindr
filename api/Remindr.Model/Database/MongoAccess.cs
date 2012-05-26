@@ -31,5 +31,10 @@ namespace Remindr.Model.Database
         {
             _mongoDatabase.DropCollection("Reminder");
         }
+
+        public static MongoCollection<ReminderLog> GetReminderLogCollection()
+        {
+            return _mongoDatabase.GetCollection<ReminderLog>("ReminderLog");
+        }
     }    
 }
