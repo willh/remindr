@@ -5,7 +5,13 @@ target
 tmp
 .history
 dist
-
+api/_ReSharper.api
+api/Remindr.Web/obj
+api/Remindr.Model/obj
+api/Remindr.Web/bin
+api/Remindr.Model/obj
+api/api.5.1.ReSharper.user
+api/api.suo
 # OSX flob
 .DS_Store
 
