@@ -5,7 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
+<<<<<<< HEAD
     <ProjectGuid>{2B944161-88D6-42DF-BE61-8B4799B5174D}</ProjectGuid>
+=======
+    <ProjectGuid>{89AEDB4B-FE24-4111-A8CC-752E8732C544}</ProjectGuid>
+>>>>>>> 53bdbf6f2b0cfec9d80f8bcc25d0710212b23f79
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Remindr.Model</RootNamespace>
