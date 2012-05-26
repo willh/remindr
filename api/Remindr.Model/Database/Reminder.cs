@@ -45,10 +45,11 @@ namespace Remindr.Model.Database
             return MongoAccess.GetReminderCollection();
         }
 
-        public void InsertToDb()
+        public string InsertToDb()
         {
             MongoCollection<Reminder> reminderCollection = GetCollection();
             reminderCollection.Insert(this);
+            return _id.ToString();
         }
 
         public void SaveToDb()
