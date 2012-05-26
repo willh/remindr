@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
+using Remindr.Twilio;
 
 namespace api
 {
@@ -13,10 +14,21 @@ namespace api
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class RemindrService
     {
-        [WebGet(UriTemplate = "/SendTextMessage/{phoneNumber}/{text}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "/SendTextMessage/{sendTo}/{message}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        public bool SendTextMessage(string phoneNumber, string text)
+        public bool SendTextMessage(string sendTo, string message)
         {
+            var textService = new TextService();
+
+            try
+            {
+                textService.SendMessage(sendTo, message);    
+            } 
+            catch (Exception e)
+            {
+                return false;
+            }
+
             return true;
         }
 
