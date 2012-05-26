@@ -32,7 +32,7 @@ namespace Remindr.Test
         [TestMethod]
         public void CanAddObjectToDatabase()
         {
-            Reminder testReminder = new Reminder("+447812496877", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now);
+            Reminder testReminder = new Reminder("+447812496877", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             var query = Query.EQ("_mobileNumber", "+447812496877");
@@ -45,7 +45,7 @@ namespace Remindr.Test
         [TestMethod]
         public void CanDeleteObjectFromDatabase()
         {
-            Reminder testReminder = new Reminder("deleteTestNumber", "test message", DateTime.Now, "daily", null, DateTime.Now);
+            Reminder testReminder = new Reminder("deleteTestNumber", "test message", DateTime.Now, "daily", null, DateTime.Now, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             var query = Query.EQ("_mobileNumber", "deleteTestNumber");            
@@ -58,7 +58,7 @@ namespace Remindr.Test
         public void CanAddDaysToSchedule()
         {            
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "daily", null, originalDateTime);
+            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "daily", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);
@@ -70,7 +70,7 @@ namespace Remindr.Test
         public void CanAddWeekToSchedule()
         {
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "weekly", null, originalDateTime);
+            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "weekly", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);            
