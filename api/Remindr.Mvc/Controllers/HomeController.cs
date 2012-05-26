@@ -12,20 +12,9 @@ namespace Remindr.Mvc.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
             return View();
-        }
-
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public JsonResult RemindrTest()
-        {
-            var response = new Response {Success = true};
-            return Json(response, JsonRequestBehavior.AllowGet);
         }
     }
+
+   
 }
