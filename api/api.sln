@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Web", "Remindr.Web\Remindr.Web.csproj", "{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Model", "Remindr.Model\Remindr.Model.csproj", "{89AEDB4B-FE24-4111-A8CC-752E8732C544}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
