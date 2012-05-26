@@ -13,6 +13,7 @@ GET     /appointments               controllers.Appointments.index
 
 # Repeat Prescriptions
 GET     /prescriptions              controllers.Prescriptions.index
+POST    /prescriptions              controllers.Prescriptions.reminder
 
 # View History
 GET     /history                    controllers.History.index

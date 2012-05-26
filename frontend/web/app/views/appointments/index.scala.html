@@ -1,0 +1,31 @@
+@main("Appointments") {
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
+
+<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
+<script type="text/javascript">
+    //init DatePicker
+    $(function(){
+        $('#appointmentDatePicker').datepicker().on('changeDate', function(ev){
+            //TODO VALIDATION
+            var currentTime = new Date();
+            if (ev.date.valueOf() < currentTime.valueOf()){
+
+            }
+        });
+    });
+</script>
+<form class="well">
+    <div>
+    <label>Mobile Number</label>
+    <input type="text" class="span3" placeholder="">
+    </div>
+    <div>
+        <label>Appointment date</label>
+        <div class="input-append date" id="appointmentDatePicker" data-date="" data-date-format="dd-mm-yyyy">
+            <input class="span2" size="16" type="text" value="">
+            <span class="add-on"><i class="icon-th"></i></span>
+        </div>
+        </div>
+    <button type="submit" class="btn">Submit</button>
+</form>
+}
