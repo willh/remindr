@@ -16,7 +16,7 @@
     @helper.form(action = routes.History.byNumber, 'class -> "pull-right"){
       <label>Filter by Phone Number</label>
       <input type="text" name="number" class="span3" placeholder="Phone Number">
-      <input type="submit" class="btn" value="Filter" style="margin-top:-8px;"/>
+      <input type="submit" class="btn fugly-margin-fix" value="Filter" />
     }
 
     <table class="table table-striped">
@@ -38,6 +38,8 @@
                     <td>@entry.date</td>
                     <td>
                         @helper.form(action = routes.History.cancel(entry.id), 'style -> "margin-bottom:0px;", 'class -> "cancel-form"){
+                            <a href="submit" class=""></a>
+
                             <input type="submit" class="btn btn-mini btn-danger" value="Cancel"/>
                         }
                     </td>

@@ -17,9 +17,7 @@ object History extends Controller {
 
   def byNumber = Action { implicit request =>
     phone.bindFromRequest.fold(
-      errors => Redirect(routes.History.index()).flashing(
-        "error" -> "You must provide a number"
-      ),
+      errors => Ok(views.html.history.index(Api.history)),
       number => Ok(views.html.history.index(Api.history(number)))
     )
   }

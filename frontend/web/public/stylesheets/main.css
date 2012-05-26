@@ -13,3 +13,6 @@ textarea {
     display: block;
     width: 300px;
 }
+.fugly-margin-fix {
+    margin-top:-8px;
+}
