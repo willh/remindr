@@ -1,8 +1,16 @@
 package controllers
 
 import play.api.mvc._
+import play.api.data._
+import play.api.data.forms._
 
 object Prescriptions extends Controller {
+
+  val prescription = Form(
+    tuple("mobile" -> nonEmptyText,
+          "date" -> nonEmptyText,
+          "reminder-message" -> nonEmptyText)
+  )
 
   def index = Action {
     Ok(views.html.prescriptions.index())

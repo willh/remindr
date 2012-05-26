@@ -15,17 +15,16 @@ $(function(){
 <h1>Repeat Prescription</h1>
 <br />
 @helper.form(action = routes.Prescriptions.reminder, 'class -> "well"){
-    <label for="prescription-mobile" id="prescription-mobile-label">Mobile Number</label>
-    <input type="text" name="prescription-mobile" id="prescription-mobile" class="span3" />
+    <label for="mobile" id="mobile-label">Mobile Number</label>
+    <input type="text" name="mobile" id="mobile" class="span3" />
 
     <label>Reminder Date</label>
-    <div class="input-append date" id="prescription-date-picker" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+    <div class="input-append date" id="date-picker" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="prescription-date" name="prescription-date" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
     </div>
 
-    <label for="prescription-reminder-message" id="prescription-reminder-message-label">Reminder Message (max 160 chars)</label>
-    <textarea id="prescription-reminder-message" name="prescription-reminder-message" rows="4" cols="80">{Title} {First Name}, your prescription for {item} ends on {end date}. Please go to your pharmacy for a repeat prescription before {end date}.</textarea>
-    <input type="submit" id="prescription-submit" value="Schedule Reminder" class="btn-primary" />
-    </fieldset>
+    <label for="reminder-message" id="reminder-message-label">Reminder Message (max 160 chars)</label>
+    <textarea id="reminder-message" name="reminder-message" rows="4" cols="80">{Title} {First Name}, your prescription for {item} ends on {end date}. Please go to your pharmacy for a repeat prescription before {end date}.</textarea>
+    <input type="submit" id="submit" value="Schedule Reminder" class="btn-primary" />
     }
 
 }
