@@ -42,7 +42,7 @@ namespace Remindr.Test
         [TestMethod]
         public void CanDeleteObjectFromDatabase()
         {
-            Reminder testReminder = new Reminder("deleteTestNumber", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now, "appointment");
+            Reminder testReminder = new Reminder("deleteTestNumber", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now.AddDays(20), "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             var query = Query.EQ("_mobileNumber", "deleteTestNumber");            
