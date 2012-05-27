@@ -1,4 +1,6 @@
-﻿using Quartz;
+﻿using System;
+using Quartz;
+using Remindr.Model;
 using Remindr.Twilio;
 
 namespace api.Scheduler
@@ -7,17 +9,13 @@ namespace api.Scheduler
     {
         public void Execute(IJobExecutionContext context)
         {
-            var patients = new[]
-                               {
-                                   new {Name = "Ruairi", MobileNumber = "+447590488120", Message = "Keep taking ur winning tablets" },
-                                   new {Name = "Kyle", MobileNumber = "+447812496877", Message = "Don't forget the methadone today Kyle!!" }
-                               };
-
+            var reminders = Reminders.GetRemindersForDate(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc));
+            
             var textService = new TextService();
 
-            foreach (var patient in patients)
+            foreach (var reminder in reminders)
             {
-                textService.SendMessage(patient.MobileNumber, patient.Message);
+                textService.SendMessage(reminder._mobileNumber, reminder._message);
             }            
         }
     }

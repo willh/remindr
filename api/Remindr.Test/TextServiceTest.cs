@@ -1,4 +1,5 @@
-﻿using Remindr.Twilio;
+﻿using System.Threading;
+using Remindr.Twilio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Remindr.Test
@@ -7,7 +8,7 @@ namespace Remindr.Test
     public class TextServiceTest
     {
         [TestMethod]
-        public void SendMessageTest()
+        public void simple_message_succeeds()
         {
             var target = new TextService();
 
@@ -16,10 +17,29 @@ namespace Remindr.Test
 
             target.SendMessage(sendTo, message);
         }
-        
+
+        [TestMethod]
+        public void send_multiple_messages_successfully()
+        {
+            var textService = new TextService();
+
+            var patients = new[]
+                               {
+                                   new {Name = "Ruairi", MobileNumber = "+447590488120", Message = "Keep taking ur winning tablets" },
+                                   new {Name = "Kyle", MobileNumber = "+447812496877", Message = "Don't forget the methadone today Kyle!!" }
+                               };
+
+            foreach (var reminder in patients)
+            {
+                textService.SendMessage(reminder.MobileNumber, reminder.Message);
+            }       
+
+            Thread.Sleep(10000);
+        }
+
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentException), "String is longer than max allowed size (160).")]
-        public void SendLaregMessageForTheCraic()
+        public void message_longer_than_160_chars_fails()
         {
             var target = new TextService();
 
