@@ -4,6 +4,7 @@ import play.api.mvc._
 import play.api.data.Forms._
 import play.api.data._
 import model.Appointment
+import api.Api
 
 object Appointments extends Controller {
 
@@ -12,11 +13,14 @@ object Appointments extends Controller {
   }
 
   val appointment = Form(
-  mapping("reminderDate" -> date("dd-mm-yyyy"),
-    "message" -> nonEmptyText,
-    "mobile" -> nonEmptyText,
-    "oneWeekNotification" -> boolean,
-    "oneDayNotification" -> boolean)(Appointment.apply)(Appointment.unapply))
+    mapping(
+      "reminderDate"        -> date("dd-mm-yyyy"),
+      "message"             -> nonEmptyText,
+      "mobile"              -> nonEmptyText,
+      "oneWeekNotification" -> boolean,
+      "oneDayNotification"  -> boolean
+    )(Appointment.apply)(Appointment.unapply)
+  )
 
   def reminder = Action { implicit request =>
     appointment.bindFromRequest.fold(
@@ -26,17 +30,12 @@ object Appointments extends Controller {
         )
       },
       appointment => {
-        sendScheduledRequest(appointment)
+        Api.appointment(appointment)
         Redirect(routes.Appointments.index()).flashing(
           "message" -> "Successfully scehuled an appointment reminder"
         )
       }
     )
-  }
-
-  def sendScheduledRequest(a: Appointment){
-
-
   }
 
 }

@@ -49,17 +49,31 @@ namespace Remindr.Model
             return reminderReturnList;
         }
 
+        public static Reminder GetReminderById(string id)
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            QueryComplete mongoQuery = Query.EQ("_id", id);
+            return reminderCollection.FindOne(mongoQuery);            
+        }
+
+        public static void CancelReminder(string id)
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            QueryComplete mongoQuery = Query.EQ("_id", id);
+            reminderCollection.FindOne(mongoQuery).DeleteFromDb();
+        }
+
         public static void CalculateNextReminderDate(Reminder reminder)
         {
-            if (reminder._schedule.Equals("daily"))
+            if (reminder._schedule.ToLower().Equals("daily"))
             {
                 reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
             }
-            else if (reminder._schedule.Equals("weekly"))
+            else if (reminder._schedule.ToLower().Equals("weekly"))
             {
                 reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(7);
             }
-            else if (reminder._schedule.Equals("custom"))
+            else if (reminder._schedule.ToLower().Equals("custom"))
             {
                 reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
                 while (reminder._schedule.IndexOf(reminder._nextScheduledReminder.DayOfWeek.ToString()) == -1)

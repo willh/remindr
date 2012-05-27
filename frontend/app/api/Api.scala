@@ -1,7 +1,8 @@
 package api
 
 import java.util.Date
-import model.{Kind, Reminder}
+import play.api.libs.ws.WS
+import model.{Appointment, Kind, Reminder}
 
 
 object Api {
@@ -23,4 +24,14 @@ object Api {
   }
 
   def get(id: Int) = data.find(_.id == id)
+
+  def appointment(app: Appointment) = {
+    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Appointment").post(Map(
+      "message"             -> Seq(app.message),
+      "mobile"              -> Seq(app.mobile),
+      "oneDayNotification"  -> Seq(app.oneDayNotification.toString),
+      "oneWeekNotification" -> Seq(app.oneWeekNotification.toString),
+      "reminderDate"        -> Seq(app.reminderDate.toString)
+    ))
+  }
 }
