@@ -53,6 +53,7 @@ namespace Remindr.Mvc.Controllers
                     reminder._mobileNumber = appointment.mobile;
                     reminder._message = appointment.message;
                     reminder._nextScheduledReminder = appointment.reminderDate.AddDays(-7);
+                    reminder.SaveToDb();
                 }
             }
             catch (Exception)
