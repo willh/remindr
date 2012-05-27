@@ -47,7 +47,7 @@ namespace Remindr.Mvc.Controllers
                 response.ErrorMessage = e.Message;
             }
 
-            return response;
+            return Json(response);
         }
 
         [HttpPost]
