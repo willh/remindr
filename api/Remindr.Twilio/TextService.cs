@@ -20,6 +20,15 @@ namespace Remindr.Twilio
         // For testing the api, don't need to create a ReminderLog
         public void SendMessage(string numberTo, string message)
         {
+            if (numberTo.StartsWith("0"))
+            {
+                numberTo = numberTo.Substring(1, numberTo.Length - 1);
+                numberTo = "+44" + numberTo;
+            }
+            else if (!numberTo.StartsWith("+"))
+            {
+                numberTo = "+" + numberTo;
+            }
             var client = new TwilioRestClient(AccountSid, AuthToken);
             client.SendSmsMessage(From, numberTo, message);            
         }
