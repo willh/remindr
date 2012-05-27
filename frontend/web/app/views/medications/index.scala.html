@@ -1,5 +1,7 @@
 @()(implicit flash: Flash)
 
+@main("Reminder") {
+
 @flash.get("error").map { msg =>
 <div class="alert alert-error">@msg</div>
 }
@@ -8,7 +10,6 @@
 <div class="alert alert-message">@msg</div>
 }
 
-@main("Reminder") {
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
 
 <script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
