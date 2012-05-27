@@ -15,7 +15,7 @@ namespace Remindr.Mvc.Scheduler
 
             foreach (var reminder in reminders)
             {
-                textService.SendMessage(reminder._mobileNumber, reminder._message);
+                textService.SendMessage(reminder);
             }            
         }
     }
