@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Remindr.Model.Database;
 using Remindr.Mvc.Models;
 using Remindr.Twilio;
+using System.Globalization;
 
 namespace Remindr.Mvc.Controllers
 {
@@ -33,17 +34,21 @@ namespace Remindr.Mvc.Controllers
         public JsonResult Appointment(Appointment appointment)
         {
             var response = new Response { Success = true };
+
             try
             {
+                var reminderDate = DateTime.Parse(appointment.reminderDate);
+
                 if (appointment.oneDayNotification)
                 {
                     var reminder = new Reminder
                                        {
                                            _message = appointment.message,
                                            _mobileNumber = appointment.mobile,
-                                           _nextScheduledReminder = appointment.reminderDate.AddDays(-1)
+                                           _nextScheduledReminder = reminderDate.AddDays(-1)
                                        };
                     reminder.SaveToDb();
+                    response.Success = false;
                 }
 
                 if (appointment.oneWeekNotification)
@@ -52,14 +57,15 @@ namespace Remindr.Mvc.Controllers
                                        {
                                            _mobileNumber = appointment.mobile,
                                            _message = appointment.message,
-                                           _nextScheduledReminder = appointment.reminderDate.AddDays(-7)
+                                           _nextScheduledReminder = reminderDate.AddDays(-7)
                                        };
                     reminder.SaveToDb();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 response.Success = false;
+                response.ErrorMessage = e.Message;
             }
 
             return Json(response);
