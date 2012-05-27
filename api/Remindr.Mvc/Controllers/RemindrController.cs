@@ -65,7 +65,7 @@ namespace Remindr.Mvc.Controllers
             catch (Exception e)
             {
                 response.Success = false;
-                response.ErrorMessage = e.Message;
+                response.ErrorMessage = e.GetType() + e.Message;
             }
 
             return Json(response);
