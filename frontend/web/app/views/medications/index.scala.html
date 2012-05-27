@@ -14,18 +14,18 @@
 <script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
 <script type="text/javascript">
     $(function(){
-    $('#date-picker-start').datepicker().on('changeDate', function(ev){
-        var currentTime = new Date();
-        if (ev.date.valueOf() < currentTime.valueOf()){
-        //TODO VALIDATION
-    }
-    });
-    $('#date-picker-end').datepicker().on('changeDate', function(ev){
-        var currentTime = new Date();
-        if (ev.date.valueOf() < currentTime.valueOf()){
-        //TODO VALIDATION
+        $('#date-picker-start').datepicker().on('changeDate', function(ev){
+            var currentTime = new Date();
+            if (ev.date.valueOf() < currentTime.valueOf()){
+            //TODO VALIDATION
         }
-    });
+        });
+        $('#date-picker-end').datepicker().on('changeDate', function(ev){
+            var currentTime = new Date();
+            if (ev.date.valueOf() < currentTime.valueOf()){
+            //TODO VALIDATION
+            }
+        });
     });
 </script>
 <h1>Medication </h1>
@@ -45,9 +45,9 @@
 </div>
 
 <div id="radiogroup">
-<input type="radio" id="daily" name="schedule" value="daily">Daily</input>
-<input type="radio" id="weekly" name="schedule" value="weekly">Weekly</input>
-<input type="radio" id="custom" name="schedule" value="custom">Custom</input>
+    <input type="radio" id="daily" name="schedule" value="daily">Daily</input>
+    <input type="radio" id="weekly" name="schedule" value="weekly">Weekly</input>
+    <!--<input type="radio" id="custom" name="schedule" value="custom">Custom</input>--><!-- TODO CUSTOM SCHEDULE -->
 </div>
 
 <label for="message" id="reminder-message-label">Reminder Message (max 160 chars)</label>
