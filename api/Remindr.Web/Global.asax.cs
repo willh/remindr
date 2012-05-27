@@ -13,31 +13,13 @@ using ServiceStack.WebHost.Endpoints;
 namespace api
 {
 
-    public class HelloAppHost : AppHostBase
-    {
-        //Tell Service Stack the name of your application and where to find your web services
-        public HelloAppHost() : base("Hello Web Services", typeof(HelloService).Assembly) { }
-
-        public override void Configure(Container container)
-        {
-            //register user-defined REST-ful urls
-            Routes
-              .Add<HelloService>("/hello")
-              .Add<HelloService>("/hello/{Name}");
-        }
-    }
-
     public class Global : System.Web.HttpApplication
     {
 
-        
-
-
         protected void Application_Start(object sender, EventArgs e)
         {
-            //new RemindrServiceAppHost().Init();
-            new HelloAppHost().Init();
-
+            new RemindrServiceAppHost().Init();
+ 
             ISchedulerFactory factory = new StdSchedulerFactory();
             var scheduler = factory.GetScheduler();
             scheduler.Start();
