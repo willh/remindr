@@ -12,7 +12,7 @@
     </control>
     <control controlID="7" controlTypeID="com.balsamiq.mockups::TextArea" x="611" y="273" w="283" h="74" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>You%20have%20an%20appointment%20booked%20with%20radiology%20on%2015/6/2012%20at%204%3A30pm%20with%20Dr%20Foster%20-%20Contact%20Local%20Hospital%20Trust%20on%20012%2044556789%20for%20info</text>
+        <text>Mr%20Smith%2C%20you%20have%20an%20appointment%20booked%20with%20radiology%20on%2015/6/2012%20at%204%3A30pm%20with%20Dr%20Foster%20-%20Contact%20Local%20Hospital%20Trust%20on%20012%2044556789%20for%20info</text>
       </controlProperties>
     </control>
     <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="619" y="151" w="124" h="-1" measuredW="107" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
@@ -65,7 +65,7 @@
         <text>Reminder%20start</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="1102" y="128" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="1094" y="126" w="-1" h="-1" measuredW="90" measuredH="21" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Mobile%20Number</text>
       </controlProperties>
@@ -104,7 +104,7 @@
     </control>
     <control controlID="36" controlTypeID="com.balsamiq.mockups::TextArea" x="1088" y="294" w="283" h="50" measuredW="200" measuredH="140" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Take%2050mg%20Pillazepam%20twice%20a%20day%20with%20meals</text>
+        <text>Mr%20Smith%20your%20medication%20plan%20reminder%20is%3A%20take%2050mg%20Pillazepam%20twice%20a%20day%20with%20meals</text>
       </controlProperties>
     </control>
     <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="1088" y="273" w="-1" h="-1" measuredW="213" measuredH="21" zOrder="21" locked="false" isInGroup="-1">
@@ -189,9 +189,9 @@
         <text>Mobile%20Number</text>
       </controlProperties>
     </control>
-    <control controlID="56" controlTypeID="com.balsamiq.mockups::TextArea" x="1565" y="222" w="283" h="66" measuredW="200" measuredH="140" zOrder="37" locked="false" isInGroup="-1">
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::TextArea" x="1565" y="222" w="283" h="80" measuredW="200" measuredH="140" zOrder="37" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Your%20prescription%20for%2050mg%20Pillazepam%20ends%20on%2014/6/2012.%20Please%20go%20to%20your%20pharmacy%20for%20a%20repeat%20prescription%20before%2015/6/2012</text>
+        <text>Mr%20Smth%2C%20your%20prescription%20for%2050mg%20Pillazepam%20ends%20on%2014/6/2012.%20Please%20go%20to%20your%20pharmacy%20for%20a%20repeat%20prescription%20before%2015/6/2012</text>
       </controlProperties>
     </control>
     <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="1565" y="201" w="-1" h="-1" measuredW="213" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
@@ -199,7 +199,7 @@
         <text>Reminder%20Message%20%28max%20160%20chars%29</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::Button" x="1712" y="297" w="135" h="27" measuredW="135" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Button" x="1712" y="315" w="135" h="27" measuredW="135" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Schedule%20Reminder</text>
       </controlProperties>
