@@ -1,7 +1,8 @@
 package api
 
 import java.util.Date
-import model.{Kind, Reminder}
+import play.api.libs.ws.WS
+import model.{Prescription, Medication, Kind, Reminder}
 
 
 object Api {
@@ -23,4 +24,24 @@ object Api {
   }
 
   def get(id: Int) = data.find(_.id == id)
+
+  def medicationReminder(med: Medication) {
+    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Appointment").post(Map(
+      "mobileNumber" -> Seq(med.mobile),
+      "reminderStartDate" -> Seq(med.start.toString),
+      "reminderEndDate" -> Seq(med.end.toString),
+      "schedule" -> Seq(med.schedule),
+      "message" -> Seq(med.message)
+    ))
+  }
+
+  def prescriptionReminder(ps: Prescription) {
+    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Appointment").post(Map(
+      "mobileNumber" -> Seq(ps.mobile),
+      "reminderDate" -> Seq(ps.reminderdate),
+      "message" -> Seq(ps.message)
+    ))
+  }
+
+
 }
