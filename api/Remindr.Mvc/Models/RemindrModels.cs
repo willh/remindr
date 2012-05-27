@@ -22,4 +22,13 @@ namespace Remindr.Mvc.Models
         public string TextMessage { get; set; }
     }
 
+    public class Appointment
+    {
+        public DateTime reminderDate { get; set; }
+        public string message { get; set; }
+        public string mobile { get; set; }
+        public bool oneWeekNotification { get; set; }
+        public bool oneDayNotification { get; set; }
+    }
+
 }

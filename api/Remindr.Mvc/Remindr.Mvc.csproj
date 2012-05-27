@@ -99,6 +99,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Remindr.Model\Remindr.Model.csproj">
+      <Project>{2B944161-88D6-42DF-BE61-8B4799B5174D}</Project>
+      <Name>Remindr.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Remindr.Twilio\Remindr.Twilio.csproj">
       <Project>{42BA4134-5844-413C-A3DA-B94879D129E8}</Project>
       <Name>Remindr.Twilio</Name>

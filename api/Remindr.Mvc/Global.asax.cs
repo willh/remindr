@@ -19,6 +19,11 @@ namespace Remindr.Mvc
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
+            routes.MapRoute(
+                "RemindrSendTextMessage",
+                "{controller}/{action}/{SendTo}/{TextMessage}",
+                new {controller = "Remindr", action = "SendTextMessage", SendTo = "", TextMessage = ""});
+
         }
 
         protected void Application_Start()

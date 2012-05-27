@@ -40,6 +40,11 @@ namespace Remindr.Model.Database
             _kind = kind;
         }
 
+        public Reminder()
+        {
+            
+        }
+
         private MongoCollection<Reminder> GetCollection()
         {
             return MongoAccess.GetReminderCollection();
