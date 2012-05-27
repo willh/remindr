@@ -37,8 +37,8 @@ namespace Remindr.Mvc.Controllers
 
             try
             {
-                var reminderStartDate = DateTime.Parse(medication.reminderStartDate);
-                var reminderEndDate = DateTime.Parse(medication.reminderEndDate);
+                var reminderStartDate = ParseDate(medication.reminderStartDate);
+                var reminderEndDate = ParseDate(medication.reminderEndDate);
 
                 var reminder = new Reminder
                                    {
@@ -69,8 +69,8 @@ namespace Remindr.Mvc.Controllers
 
             try
             {
-                var reminderDate = DateTime.Parse(appointment.reminderDate);
-
+                var reminderDate = ParseDate(appointment.reminderDate);
+                
                 if (appointment.oneDayNotification)
                 {
                     var reminder = new Reminder
@@ -102,5 +102,13 @@ namespace Remindr.Mvc.Controllers
             return Json(response);
         }
 
+        private static DateTime ParseDate(string date)
+        {
+            string[] dateParts = date.Split('/');
+
+            var dateTime = new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
+
+            return dateTime;
+        }
     }
 }
