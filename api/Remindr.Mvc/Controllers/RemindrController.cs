@@ -48,7 +48,6 @@ namespace Remindr.Mvc.Controllers
                                            _nextScheduledReminder = reminderDate.AddDays(-1)
                                        };
                     reminder.SaveToDb();
-                    response.Success = false;
                 }
 
                 if (appointment.oneWeekNotification)
@@ -65,7 +64,7 @@ namespace Remindr.Mvc.Controllers
             catch (Exception e)
             {
                 response.Success = false;
-                response.ErrorMessage = e.Message;
+                response.ErrorMessage = e.GetType() + e.Message;
             }
 
             return Json(response);
