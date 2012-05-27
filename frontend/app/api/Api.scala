@@ -31,7 +31,9 @@ object Api {
       "mobile"              -> Seq(app.mobile),
       "oneDayNotification"  -> Seq(app.oneDayNotification.toString),
       "oneWeekNotification" -> Seq(app.oneWeekNotification.toString),
-      "reminderDate"        -> Seq(app.reminderDate.toString)
+      "reminderDate"        -> Seq(formatDate(app.reminderDate))
     ))
   }
+
+  private def formatDate(date: Date) = new java.text.SimpleDateFormat("dd/MM/yyyy").format(date)
 }
