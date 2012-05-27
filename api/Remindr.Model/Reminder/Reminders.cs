@@ -56,6 +56,13 @@ namespace Remindr.Model
             return reminderCollection.FindOne(mongoQuery);            
         }
 
+        public static void CancelReminder(string id)
+        {
+            MongoCollection<Reminder> reminderCollection = GetCollection();
+            QueryComplete mongoQuery = Query.EQ("_id", id);
+            reminderCollection.FindOne(mongoQuery).DeleteFromDb();
+        }
+
         public static void CalculateNextReminderDate(Reminder reminder)
         {
             if (reminder._schedule.Equals("daily"))
