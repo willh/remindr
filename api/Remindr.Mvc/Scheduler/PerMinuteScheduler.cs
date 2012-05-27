@@ -1,6 +1,6 @@
 using Quartz;
 
-namespace api.Scheduler
+namespace Remindr.Mvc.Scheduler
 {
     public class PerMinuteScheduler
     {

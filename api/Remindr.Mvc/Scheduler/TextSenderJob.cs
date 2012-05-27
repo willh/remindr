@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Quartz;
 using Remindr.Model;
 using Remindr.Twilio;
 
-namespace api.Scheduler
+namespace Remindr.Mvc.Scheduler
 {
     public class TextSenderJob : IJob
     {
