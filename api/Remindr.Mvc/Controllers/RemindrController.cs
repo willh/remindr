@@ -51,6 +51,34 @@ namespace Remindr.Mvc.Controllers
         }
 
         [HttpPost]
+        public JsonResult Prescription(Prescription prescription)
+        {
+            var response = new Response { Success = true };
+
+            try
+            {
+                var reminderDate = ParseDate(prescription.reminderDate);
+
+                var reminder = new Reminder
+                                   {
+                                       _message = prescription.message,
+                                       _mobileNumber = prescription.mobileNumber,
+                                       _nextScheduledReminder = reminderDate
+                                   };
+
+                reminder.SaveToDb();
+            }
+            catch (Exception e)
+            {
+
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+            }
+
+            return Json(response);
+        }
+
+        [HttpPost]
         public JsonResult Medication(Medication medication)
         {
             var response = new Response { Success = true };
