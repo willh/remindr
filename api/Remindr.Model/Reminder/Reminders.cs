@@ -61,7 +61,11 @@ namespace Remindr.Model
             }
             else if (reminder._schedule.Equals("custom"))
             {
-                // TODO
+                reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
+                while (reminder._schedule.IndexOf(reminder._nextScheduledReminder.DayOfWeek.ToString()) == -1)
+                {
+                    reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
+                }
             }
 
             if (reminder._schedule == null || reminder._endReminderDate == null || reminder._nextScheduledReminder > reminder._endReminderDate)
