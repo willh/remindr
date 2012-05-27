@@ -1,4 +1,4 @@
-@(history: List[kainos.nhs.hackday.model.History])(implicit flash: Flash)
+@(history: List[kainos.nhs.hackday.model.Reminder])(implicit flash: Flash)
 
 @main("Reminder") {
 
@@ -16,19 +16,10 @@
     @helper.form(action = routes.History.byNumber, 'class -> "pull-right"){
       <label>Filter by Phone Number</label>
       <input type="text" name="number" class="span3" placeholder="Phone Number">
-      <input type="submit" class="btn" value="Filter" style="margin-top:-8px;"/>
+      <input type="submit" class="btn fugly-margin-fix" value="Filter" />
     }
 
     <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Number</th>
-                <th>Kind</th>
-                <th>Date</th>
-                <th></th>
-            </tr>
-        </thead>
         <tbody>
             @history.map { entry =>
                 <tr>
@@ -38,6 +29,7 @@
                     <td>@entry.date</td>
                     <td>
                         @helper.form(action = routes.History.cancel(entry.id), 'style -> "margin-bottom:0px;", 'class -> "cancel-form"){
+                            <a href="@routes.History.view(entry.id)" class="btn btn-mini btn-primary">View</a>
                             <input type="submit" class="btn btn-mini btn-danger" value="Cancel"/>
                         }
                     </td>
