@@ -30,10 +30,15 @@ object Appointments extends Controller {
         )
       },
       appointment => {
-        Api.appointment(appointment)
-        Redirect(routes.Appointments.index()).flashing(
-          "message" -> "Successfully scehuled an appointment reminder"
-        )
+        Async {
+          Api.appointment(appointment).map { response =>
+            println(response.status)
+            println(response.body)
+            Redirect(routes.Appointments.index()).flashing(
+              "message" -> "Successfully scehuled an appointment reminder"
+            )
+          }
+        }
       }
     )
   }
