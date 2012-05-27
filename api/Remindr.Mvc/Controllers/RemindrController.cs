@@ -31,6 +31,38 @@ namespace Remindr.Mvc.Controllers
         }
 
         [HttpPost]
+        public JsonResult Medication(Medication medication)
+        {
+            var response = new Response { Success = true };
+
+            try
+            {
+                var reminderStartDate = DateTime.Parse(medication.reminderStartDate);
+                var reminderEndDate = DateTime.Parse(medication.reminderEndDate);
+
+                var reminder = new Reminder
+                                   {
+                                       _nextScheduledReminder = reminderStartDate,
+                                       _endReminderDate = reminderEndDate,
+                                       _message = medication.message,
+                                       _schedule = medication.schedule,
+                                       _mobileNumber = medication.mobileNumber
+                                   };
+
+                reminder.SaveToDb();
+
+            }
+            catch (Exception e)
+            {
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+            }
+
+
+            return Json(response);
+        }
+
+        [HttpPost]
         public JsonResult Appointment(Appointment appointment)
         {
             var response = new Response { Success = true };
@@ -64,7 +96,7 @@ namespace Remindr.Mvc.Controllers
             catch (Exception e)
             {
                 response.Success = false;
-                response.ErrorMessage = e.GetType() + e.Message;
+                response.ErrorMessage = e.Message;
             }
 
             return Json(response);

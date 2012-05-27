@@ -24,6 +24,15 @@ namespace Remindr.Mvc.Models
         public string TextMessage { get; set; }
     }
 
+    public class Medication
+    {
+        public string mobileNumber { get; set; }
+        public string reminderStartDate { get; set; }
+        public string reminderEndDate { get; set; }
+        public string schedule { get; set; }
+        public string message { get; set; }
+    }
+
     public class Appointment
     {
         public string reminderDate { get; set; }
