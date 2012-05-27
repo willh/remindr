@@ -5,16 +5,17 @@ import play.api.data.Forms._
 import play.api.data._
 import model.Appointment
 import api.Api
+import play.api.i18n.Messages
 
 object Appointments extends Controller {
 
-  def index = Action {
+  def index = Action { implicit request =>
     Ok(views.html.appointments.index())
   }
 
   val appointment = Form(
     mapping(
-      "reminderDate"        -> date("dd-mm-yyyy"),
+      "reminderDate"        -> date("dd/mm/yyyy"),
       "message"             -> nonEmptyText,
       "mobile"              -> nonEmptyText,
       "oneWeekNotification" -> boolean,
@@ -26,14 +27,12 @@ object Appointments extends Controller {
     appointment.bindFromRequest.fold(
       errors => {
         Redirect(routes.Appointments.index()).flashing(
-          "error" -> "Could not bind form due to error"
+          "error" -> Messages(errors.errors.head.message)
         )
       },
       appointment => {
         Async {
           Api.appointment(appointment).map { response =>
-            println(response.status)
-            println(response.body)
             Redirect(routes.Appointments.index()).flashing(
               "message" -> "Successfully scehuled an appointment reminder"
             )
