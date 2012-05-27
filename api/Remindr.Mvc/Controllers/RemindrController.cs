@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Remindr.Model.Database;
 using Remindr.Mvc.Models;
@@ -40,19 +37,23 @@ namespace Remindr.Mvc.Controllers
             {
                 if (appointment.oneDayNotification)
                 {
-                    var reminder = new Reminder();
-                    reminder._message = appointment.message;
-                    reminder._mobileNumber = appointment.mobile;
-                    reminder._nextScheduledReminder = appointment.reminderDate.AddDays(-1);
+                    var reminder = new Reminder
+                                       {
+                                           _message = appointment.message,
+                                           _mobileNumber = appointment.mobile,
+                                           _nextScheduledReminder = appointment.reminderDate.AddDays(-1)
+                                       };
                     reminder.SaveToDb();
                 }
 
                 if (appointment.oneWeekNotification)
                 {
-                    var reminder = new Reminder();
-                    reminder._mobileNumber = appointment.mobile;
-                    reminder._message = appointment.message;
-                    reminder._nextScheduledReminder = appointment.reminderDate.AddDays(-7);
+                    var reminder = new Reminder
+                                       {
+                                           _mobileNumber = appointment.mobile,
+                                           _message = appointment.message,
+                                           _nextScheduledReminder = appointment.reminderDate.AddDays(-7)
+                                       };
                     reminder.SaveToDb();
                 }
             }
