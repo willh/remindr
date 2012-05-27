@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Quartz;
+using Quartz.Impl;
+using Remindr.Mvc.Scheduler;
 
 namespace Remindr.Mvc
 {
@@ -31,6 +30,19 @@ namespace Remindr.Mvc
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
+
+            SetupSchedulers();
+        }
+
+        private void SetupSchedulers()
+        {
+            ISchedulerFactory factory = new StdSchedulerFactory();
+            var scheduler = factory.GetScheduler();
+            scheduler.Start();
+
+            // Change this later to check for all implementations of a marker iterface like IScheduleJobs
+            var perMinuteScheduler = new PerMinuteScheduler();
+            perMinuteScheduler.Schedule(scheduler);
         }
     }
 }

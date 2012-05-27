@@ -61,7 +61,11 @@ namespace Remindr.Model
             }
             else if (reminder._schedule.Equals("custom"))
             {
-                // TODO
+                reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
+                while (reminder._schedule.IndexOf(reminder._nextScheduledReminder.DayOfWeek.ToString()) == -1)
+                {
+                    reminder._nextScheduledReminder = reminder._nextScheduledReminder.AddDays(1);
+                }
             }
 
             if (reminder._schedule == null || reminder._endReminderDate == null || reminder._nextScheduledReminder > reminder._endReminderDate)
@@ -109,6 +113,19 @@ namespace Remindr.Model
             }
 
             return reminderReturnList;
+        }
+
+        public static List<ReminderLog> GetAllSentReminders()
+        {
+            MongoCollection<ReminderLog> reminderLogCollection = GetLogCollection();
+            MongoCursor<ReminderLog> mongoCursor = reminderLogCollection.FindAll();
+            List<ReminderLog> reminderLogReturnList = new List<ReminderLog>();
+            foreach (ReminderLog reminderLog in mongoCursor)
+            {
+                reminderLogReturnList.Add(reminderLog);
+            }
+
+            return reminderLogReturnList;
         }
     }
 }

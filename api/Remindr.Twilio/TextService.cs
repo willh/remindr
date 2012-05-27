@@ -1,4 +1,5 @@
-﻿using Twilio;
+﻿using System;
+using Twilio;
 
 namespace Remindr.Twilio
 {
@@ -11,7 +12,12 @@ namespace Remindr.Twilio
         public void SendMessage(string sendTo, string message)
         {
             var client = new TwilioRestClient(AccountSid, AuthToken);
-            client.SendSmsMessage(From, sendTo, message);
+            client.SendSmsMessage(From, sendTo, message, LogTextResponse);
+        }
+
+        private void LogTextResponse(SMSMessage message)
+        {
+            Console.WriteLine("Message - Number {0} and Status {1}", message.To, message.Status);
         }
     }
 }
