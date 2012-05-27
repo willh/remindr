@@ -115,10 +115,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemindrService.cs" />
-    <Compile Include="RemindrServiceAppHost.cs" />
-    <Compile Include="TextMessageSendOrder.cs" />
-    <Compile Include="TextMessageSendResponse.cs" />
     <Compile Include="Scheduler\DailyScheduler.cs" />
     <Compile Include="Scheduler\PerMinuteScheduler.cs" />
     <Compile Include="Scheduler\TextSenderJob.cs" />

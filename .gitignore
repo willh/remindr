@@ -15,6 +15,8 @@ api/Remindr.Twilio/obj
 api/Remindr.Model/bin
 api/Remindr.Twilio/bin
 api/Remindr.Test/bin
+api/Remindr.Mvc/obj
+api/Remindr.Mvc/bin
 api/api.5.1.ReSharper.user
 api/api.suo
 # OSX flob
