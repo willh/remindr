@@ -1,35 +1,46 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Web", "Remindr.Web\Remindr.Web.csproj", "{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}"
-EndProject
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Model", "Remindr.Model\Remindr.Model.csproj", "{2B944161-88D6-42DF-BE61-8B4799B5174D}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Model", "Remindr.Model\Remindr.Model.csproj", "{89AEDB4B-FE24-4111-A8CC-752E8732C544}"
->>>>>>> 53bdbf6f2b0cfec9d80f8bcc25d0710212b23f79
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Twilio", "Remindr.Twilio\Remindr.Twilio.csproj", "{42BA4134-5844-413C-A3DA-B94879D129E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Test", "Remindr.Test\Remindr.Test.csproj", "{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{517B5A8D-E0AC-4D6A-BDC4-78E6E7C1CC30}"
+	ProjectSection(SolutionItems) = preProject
+		api.vsmdi = api.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Mvc", "Remindr.Mvc\Remindr.Mvc.csproj", "{F1785BDA-4368-44A3-B834-284B307878B9}"
 EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = api.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF4EFFCD-5AD1-4675-B7CA-F86A14E8CF7C}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B944161-88D6-42DF-BE61-8B4799B5174D}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89AEDB4B-FE24-4111-A8CC-752E8732C544}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 53bdbf6f2b0cfec9d80f8bcc25d0710212b23f79
+		{42BA4134-5844-413C-A3DA-B94879D129E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BA4134-5844-413C-A3DA-B94879D129E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BA4134-5844-413C-A3DA-B94879D129E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BA4134-5844-413C-A3DA-B94879D129E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1785BDA-4368-44A3-B834-284B307878B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

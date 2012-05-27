@@ -43,5 +43,15 @@ object Api {
     ))
   }
 
+  def appointment(app: Appointment) = {
+    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Appointment").post(Map(
+      "message"             -> Seq(app.message),
+      "mobile"              -> Seq(app.mobile),
+      "oneDayNotification"  -> Seq(app.oneDayNotification.toString),
+      "oneWeekNotification" -> Seq(app.oneWeekNotification.toString),
+      "reminderDate"        -> Seq(formatDate(app.reminderDate))
+    ))
+  }
 
+  private def formatDate(date: Date) = new java.text.SimpleDateFormat("dd/MM/yyyy").format(date)
 }
