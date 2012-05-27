@@ -110,5 +110,18 @@ namespace Remindr.Model
 
             return reminderReturnList;
         }
+
+        public static List<ReminderLog> GetAllSentReminders()
+        {
+            MongoCollection<ReminderLog> reminderLogCollection = GetLogCollection();
+            MongoCursor<ReminderLog> mongoCursor = reminderLogCollection.FindAll();
+            List<ReminderLog> reminderLogReturnList = new List<ReminderLog>();
+            foreach (ReminderLog reminderLog in mongoCursor)
+            {
+                reminderLogReturnList.Add(reminderLog);
+            }
+
+            return reminderLogReturnList;
+        }
     }
 }
