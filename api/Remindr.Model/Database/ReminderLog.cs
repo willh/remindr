@@ -19,14 +19,14 @@ namespace Remindr.Model.Database
     public class ReminderLog
     {
         public ObjectId _id { get; set; }
-        public string _originalId { get; set; }
+        public ObjectId _originalId { get; set; }
         public string _mobileNumber { get; set; }
         public string _message { get; set; }
         public DateTime _messageDate { get; set; }
         public string _status { get; set; }
         public string _kind { get; set; }
 
-        public ReminderLog(string originalId, string mobileNumber, string message, DateTime messageDate, string status, string kind)
+        public ReminderLog(ObjectId originalId, string mobileNumber, string message, DateTime messageDate, string status, string kind)
         {
             _originalId = originalId;
             _mobileNumber = mobileNumber;
