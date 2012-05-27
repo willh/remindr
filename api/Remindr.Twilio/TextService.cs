@@ -12,23 +12,30 @@ namespace Remindr.Twilio
      
         public void SendMessage(Reminder reminder)
         {
+            reminder._mobileNumber = FormatNumber(reminder._mobileNumber);
             var client = new TwilioRestClient(AccountSid, AuthToken);
             var smsMessage = client.SendSmsMessage(From, reminder._mobileNumber, reminder._message);
             LogTextResponse(smsMessage, reminder);
         }
 
+        public string FormatNumber(string mobileNumber)
+        {
+            if (mobileNumber.StartsWith("0"))
+            {
+                mobileNumber = mobileNumber.Substring(1, mobileNumber.Length - 1);
+                mobileNumber = "+44" + mobileNumber;
+            }
+            else if (!mobileNumber.StartsWith("+"))
+            {
+                mobileNumber = "+" + mobileNumber;
+            }
+            return mobileNumber;
+        }
+
         // For testing the api, don't need to create a ReminderLog
         public void SendMessage(string numberTo, string message)
         {
-            if (numberTo.StartsWith("0"))
-            {
-                numberTo = numberTo.Substring(1, numberTo.Length - 1);
-                numberTo = "+44" + numberTo;
-            }
-            else if (!numberTo.StartsWith("+"))
-            {
-                numberTo = "+" + numberTo;
-            }
+            numberTo = FormatNumber(numberTo);
             var client = new TwilioRestClient(AccountSid, AuthToken);
             client.SendSmsMessage(From, numberTo, message);            
         }
