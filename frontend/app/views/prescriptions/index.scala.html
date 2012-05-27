@@ -1,0 +1,41 @@
+@()(implicit flash: Flash)
+
+@flash.get("error").map { msg =>
+<div class="alert alert-error">@msg</div>
+}
+
+@flash.get("message").map { msg =>
+<div class="alert alert-message">@msg</div>
+}
+
+@main("Reminder") {
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
+
+<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
+<script type="text/javascript">
+$(function(){
+    $('#date-picker').datepicker().on('changeDate', function(ev){
+        var currentTime = new Date();
+        if (ev.date.valueOf() < currentTime.valueOf()){
+            //TODO VALIDATION
+        }
+    });
+});
+</script>
+<h1>Repeat Prescription</h1>
+<br />
+
+@helper.form(action = routes.Prescriptions.reminder, 'class -> "well"){
+    <label for="mobile" id="mobile-label">Mobile Number</label>
+    <input type="text" name="mobile" id="mobile" class="span3" />
+
+    <label>Reminder Date</label>
+    <div class="input-append date" id="date-picker" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderdate" name="reminderdate" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+    </div>
+
+    <label for="message" id="reminder-message-label">Reminder Message (max 160 chars)</label>
+    <textarea id="message" name="message" rows="4" cols="80">{Title} {First Name}, your prescription for {item} ends on {end date}. Please go to your pharmacy for a repeat prescription before {end date}.</textarea>
+    <input type="submit" id="submit" value="Schedule Reminder" class="btn-primary" />
+    }
+
+}

@@ -1,0 +1,47 @@
+@(history: List[model.Reminder])(implicit flash: Flash)
+
+@main("Reminder") {
+
+    @flash.get("error").map { msg =>
+        <div class="alert alert-error">@msg</div>
+    }
+
+    @flash.get("message").map { msg =>
+        <div class="alert alert-message">@msg</div>
+    }
+
+    <h1>View History</h1>
+    <h2>Message scheduling history for Local Hospital Trust</h2>
+
+    @helper.form(action = routes.History.byNumber, 'class -> "pull-right"){
+      <label>Filter by Phone Number</label>
+      <input type="text" name="number" class="span3" placeholder="Phone Number">
+      <input type="submit" class="btn fugly-margin-fix" value="Filter" />
+    }
+
+    <table class="table table-striped">
+        <tbody>
+            @history.map { entry =>
+                <tr>
+                    <td>@entry.user</td>
+                    <td>@entry.number</td>
+                    <td>@entry.kind</td>
+                    <td>@entry.date</td>
+                    <td>
+                        @helper.form(action = routes.History.cancel(entry.id), 'style -> "margin-bottom:0px;", 'class -> "cancel-form"){
+                            <a href="@routes.History.view(entry.id)" class="btn btn-mini btn-primary">View</a>
+                            <input type="submit" class="btn btn-mini btn-danger" value="Cancel"/>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        $(".cancel-form").submit(function(e){
+            if(!confirm("Are you sure?")){
+                return false;
+            }
+        });
+    </script>
+}

@@ -1,0 +1,58 @@
+@()(implicit flash: Flash)
+
+@flash.get("error").map { msg =>
+<div class="alert alert-error">@msg</div>
+}
+
+@flash.get("message").map { msg =>
+<div class="alert alert-message">@msg</div>
+}
+
+@main("Reminder") {
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
+
+<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
+<script type="text/javascript">
+    $(function(){
+    $('#date-picker-start').datepicker().on('changeDate', function(ev){
+        var currentTime = new Date();
+        if (ev.date.valueOf() < currentTime.valueOf()){
+        //TODO VALIDATION
+    }
+    });
+    $('#date-picker-end').datepicker().on('changeDate', function(ev){
+        var currentTime = new Date();
+        if (ev.date.valueOf() < currentTime.valueOf()){
+        //TODO VALIDATION
+        }
+    });
+    });
+</script>
+<h1>Medication </h1>
+<br />
+
+@helper.form(action = routes.Medications.reminder, 'class -> "well"){
+<label for="mobile" id="mobile-label">Mobile Number</label>
+<input type="text" name="mobile" id="mobile" class="span3" />
+
+<label>Reminder Start</label>
+<div class="input-append date" id="date-picker-start" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderstart" name="reminderstart" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+</div>
+
+
+<label>Reminder End</label>
+<div class="input-append date" id="date-picker-end" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderend" name="reminderend" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+</div>
+
+<div id="radiogroup">
+<input type="radio" id="daily" name="schedule" value="daily">Daily</input>
+<input type="radio" id="weekly" name="schedule" value="weekly">Weekly</input>
+<input type="radio" id="custom" name="schedule" value="custom">Custom</input>
+</div>
+
+<label for="message" id="reminder-message-label">Reminder Message (max 160 chars)</label>
+<textarea id="message" name="message" rows="4" cols="80">{Title} {First Name}, please take {item} {daily time} {other notes}</textarea>
+<input type="submit" id="submit" value="Schedule Reminder" class="btn-primary" />
+}
+
+}
