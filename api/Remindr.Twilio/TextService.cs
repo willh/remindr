@@ -17,6 +17,13 @@ namespace Remindr.Twilio
             LogTextResponse(smsMessage, reminder);
         }
 
+        // For testing the api, don't need to create a ReminderLog
+        public void SendMessage(string numberTo, string message)
+        {
+            var client = new TwilioRestClient(AccountSid, AuthToken);
+            client.SendSmsMessage(From, numberTo, message);            
+        }
+
         private void LogTextResponse(SMSMessage message, Reminder reminder)
         {
             var reminderLog = new ReminderLog(reminder._id, reminder._mobileNumber, reminder._message, reminder._nextScheduledReminder, message.Status, reminder._kind);
