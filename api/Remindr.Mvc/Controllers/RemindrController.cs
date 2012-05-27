@@ -96,7 +96,7 @@ namespace Remindr.Mvc.Controllers
             catch (Exception e)
             {
                 response.Success = false;
-                response.ErrorMessage = e.Message;
+                response.ErrorMessage = appointment.reminderDate + " " + e.Message;
             }
 
             return Json(response);
