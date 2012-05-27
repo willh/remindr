@@ -9,7 +9,7 @@ namespace Remindr.Mvc.Scheduler
             var job = JobBuilder.Create<TextSenderJob>().Build();
 
             var trigger = TriggerBuilder.Create()
-                            .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).WithRepeatCount(3))
+                            .WithSimpleSchedule(x => x.WithIntervalInSeconds(60))
                             .Build();
 
             scheduler.ScheduleJob(job, trigger);    
