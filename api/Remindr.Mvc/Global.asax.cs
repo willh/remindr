@@ -23,6 +23,10 @@ namespace Remindr.Mvc
                 "{controller}/{action}/{SendTo}/{TextMessage}",
                 new {controller = "Remindr", action = "SendTextMessage", SendTo = "", TextMessage = ""});
 
+            routes.MapRoute(
+                "RemindrHistory",
+                "{controller}/{action}/{Number}/{Id}",
+                new { controller = "History", action = "GetHistory", Number = "", Id = "" });
         }
 
         protected void Application_Start()

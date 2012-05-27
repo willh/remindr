@@ -33,6 +33,12 @@ namespace Remindr.Mvc.Models
         public string message { get; set; }
     }
 
+    public class GetHistoryRequest
+    {
+        public string Id { get; set; }
+        public string Number { get; set; }
+    }
+
     public class Appointment
     {
         public string reminderDate { get; set; }
