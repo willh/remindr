@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Remindr.Model;
 using Remindr.Model.Database;
 using Remindr.Mvc.Models;
 using Remindr.Twilio;
@@ -28,6 +29,25 @@ namespace Remindr.Mvc.Controllers
             }
 
             return Json(response, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CancelReminder(string id)
+        {
+            var response = new Response { Success = true };
+
+            try
+            {
+                Reminders.CancelReminder(id);
+            }
+            catch (Exception e)
+            {
+
+                response.Success = false;
+                response.ErrorMessage = e.Message;
+            }
+
+            return response;
         }
 
         [HttpPost]
