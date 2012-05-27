@@ -11,6 +11,7 @@ POST    /medications                controllers.Medications.reminder
 
 # Appointments
 GET     /appointments               controllers.Appointments.index
+POST    /appointments               controllers.Appointments.reminder
 
 # Repeat Prescriptions
 GET     /prescriptions              controllers.Prescriptions.index
