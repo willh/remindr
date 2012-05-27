@@ -15,10 +15,7 @@ namespace Remindr.Test
     using Remindr.Model.Database;
     using MongoDB.Driver.Builders;
     using Remindr.Model;
-
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
+        
     [TestClass]
     public class DatabaseTests
     {
@@ -58,7 +55,7 @@ namespace Remindr.Test
         public void CanAddDaysToSchedule()
         {            
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "daily", null, originalDateTime, "appointment");
+            Reminder testReminder = new Reminder("+447812496877", "test message", originalDateTime, "daily", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);
@@ -70,7 +67,7 @@ namespace Remindr.Test
         public void CanAddWeekToSchedule()
         {
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("07812496877", "test message", originalDateTime, "weekly", null, originalDateTime, "appointment");
+            Reminder testReminder = new Reminder("+447812496877", "test message", originalDateTime, "weekly", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);            
