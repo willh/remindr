@@ -2,7 +2,7 @@ package controllers
 
 import play.api.mvc._
 import play.api.data._
-import play.api.data.forms._
+import play.api.data.Forms._
 
 object Prescriptions extends Controller {
 

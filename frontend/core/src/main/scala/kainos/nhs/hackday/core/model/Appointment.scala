@@ -2,4 +2,4 @@ package kainos.nhs.hackday.core.model
 
 import java.util.Date
 
-case class Appointment(mobile: String, reminderDate: Date, oneWeekNotification: String, oneDayNotification: String, message: String)
+case class Appointment(reminderDate: Date,message: String, mobile: String, oneWeekNotification: Boolean, oneDayNotification: Boolean)

@@ -16,7 +16,7 @@ object Appointments extends Controller {
     "message" -> nonEmptyText,
     "mobile" -> nonEmptyText,
     "oneWeekNotification" -> boolean,
-    "oneDayNotification" -> boolean)(Appointment.apply)(Appoinment.unapply))
+    "oneDayNotification" -> boolean)(Appointment.apply)(Appointment.unapply))
 
   def reminder = Action { implicit request =>
     appointment.bindFromRequest.fold(
@@ -34,7 +34,7 @@ object Appointments extends Controller {
     )
   }
 
-  def sendScheduledRequest(a: ){
+  def sendScheduledRequest(a: Appointment){
 
 
   }
