@@ -14,6 +14,8 @@ namespace Remindr.Mvc.Models
     public class Response
     {
         public bool Success { get; set; }
+
+        public string ErrorMessage { get; set; }
     }
 
     public class SendTextMessageRequest
@@ -24,7 +26,7 @@ namespace Remindr.Mvc.Models
 
     public class Appointment
     {
-        public DateTime reminderDate { get; set; }
+        public string reminderDate { get; set; }
         public string message { get; set; }
         public string mobile { get; set; }
         public bool oneWeekNotification { get; set; }
