@@ -25,7 +25,7 @@ object Api {
 
   def get(id: Int) = data.find(_.id == id)
 
-  def medicationReminder(med: Medication) {
+  def medicationReminder(med: Medication) = {
     WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Medication").post(Map(
       "mobileNumber" -> Seq(med.mobile),
       "reminderStartDate" -> Seq(formatDate(med.start)),
@@ -35,7 +35,7 @@ object Api {
     ))
   }
 
-  def prescriptionReminder(ps: Prescription) {
+  def prescriptionReminder(ps: Prescription) = {
     WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Prescription").post(Map(
       "mobileNumber" -> Seq(ps.mobile),
       "reminderDate" -> Seq(formatDate(ps.reminderdate)),

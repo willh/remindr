@@ -6,6 +6,7 @@ import play.api.data.Forms._
 import play.api.i18n.Messages
 import model.Prescription
 import play.api.libs.ws.WS
+import api.Api
 
 object Prescriptions extends Controller {
 
@@ -27,10 +28,14 @@ object Prescriptions extends Controller {
         )
       },
       scrip => {
-        api.Api.prescriptionReminder(scrip)
-        Redirect(routes.Prescriptions.index()).flashing(
-          "message" -> "Successfully scheduled prescription reminder"
-        )
+        Async{
+          Api.prescriptionReminder(scrip).map { response =>
+            println(response.body)
+            Redirect(routes.Prescriptions.index()).flashing(
+              "message" -> "Successfully scheduled prescription reminder"
+            )
+          }
+        }
       }
     )
   }
