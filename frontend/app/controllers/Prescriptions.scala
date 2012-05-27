@@ -11,7 +11,7 @@ object Prescriptions extends Controller {
 
   val prescription = Form(
     mapping("mobile" -> nonEmptyText,
-      "reminderdate" -> date("dd/mm/yyyy"),
+      "reminderdate" -> date("dd/MM/yyyy"),
       "message" -> nonEmptyText)(Prescription.apply)(Prescription.unapply)
   )
 

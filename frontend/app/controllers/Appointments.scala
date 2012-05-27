@@ -15,7 +15,7 @@ object Appointments extends Controller {
 
   val appointment = Form(
     mapping(
-      "reminderDate"        -> date("dd/mm/yyyy"),
+      "reminderDate"        -> date("dd/MM/yyyy"),
       "message"             -> nonEmptyText,
       "mobile"              -> nonEmptyText,
       "oneWeekNotification" -> boolean,

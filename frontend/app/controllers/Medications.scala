@@ -11,8 +11,8 @@ object Medications extends Controller {
   val medication = Form(
     mapping(
       "mobile" -> nonEmptyText,
-      "reminderstart" -> date("dd/mm/yyyy"),
-      "reminderend" -> date("dd/mm/yyyy"),
+      "reminderstart" -> date("dd/MM/yyyy"),
+      "reminderend" -> date("dd/MM/yyyy"),
       "schedule" -> nonEmptyText,
       "message" -> nonEmptyText
     )(Medication.apply)(Medication.unapply)
