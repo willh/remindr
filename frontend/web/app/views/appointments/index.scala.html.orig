@@ -1,5 +1,5 @@
 @main("Appointments") {
-<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.at(" stylesheets/datepicker.css")">
 
 <script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
 <script type="text/javascript">
@@ -14,13 +14,16 @@
     });
     });
 </script>
+<<<<<<< HEAD
 <h1>Appointments</h1>
 <br>
 @helper.form(action = routes.Appointments.reminder, 'style -> "margin-bottom:0px;", 'class -> "well"){
 <label>Mobile Number</label>
 <input type="text" class="span3" placeholder="" id="mobile">
 <label>Appointment date</label>
-<div class="input-append date" id="appointmentDatePicker" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderdate" name="reminderdate" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+<div class="input-append date" id="reminderDate" data-date="01-05-2012" data-date-format="dd-mm-yyyy">
+    <input class="span2" size="16" type="text" value=""/><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+</div>
 <div class="control-group">
     <label class="control-label" for="inlineCheckboxes">Notification Options</label>
     <div class="controls">
@@ -43,3 +46,19 @@
 }
 
 
+=======
+<form class="well">
+    <div>
+    <label>Mobile Number</label>
+    <input type="text" class="span3" placeholder="">
+    </div>
+    <div>
+        <label>Appointment date</label>
+        <div class="input-append date" id="appointmentDatePicker" data-date="" data-date-format="dd-mm-yyyy">
+            <input class="span2" size="16" type="text" value=""/><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+        </div>
+    </div>
+    <button type="submit" class="btn">Submit</button>
+</form>
+}
+>>>>>>> 8a0c424d742c0e6e0434ac06985850adad6fdddc

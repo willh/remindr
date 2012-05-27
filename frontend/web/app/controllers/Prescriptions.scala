@@ -4,6 +4,7 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import kainos.nhs.hackday.core.model._
+import play.api.i18n.Messages
 
 object Prescriptions extends Controller {
 
@@ -21,7 +22,7 @@ object Prescriptions extends Controller {
     prescription.bindFromRequest.fold(
       errors => {
         Redirect(routes.Prescriptions.index()).flashing(
-        "error" -> "Could not bind form due to error"
+        "error" -> Messages(errors.errors.head.message)
         )
       },
       scrip => {
