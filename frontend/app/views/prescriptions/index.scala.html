@@ -1,5 +1,7 @@
 @()(implicit flash: Flash)
 
+@main("Reminder") {
+
 @flash.get("error").map { msg =>
 <div class="alert alert-error">@msg</div>
 }
@@ -8,19 +10,18 @@
 <div class="alert alert-message">@msg</div>
 }
 
-@main("Reminder") {
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/datepicker.css")">
 
 <script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
 <script type="text/javascript">
-$(function(){
-    $('#date-picker').datepicker().on('changeDate', function(ev){
-        var currentTime = new Date();
-        if (ev.date.valueOf() < currentTime.valueOf()){
-            //TODO VALIDATION
-        }
+    $(function(){
+        $('#date-picker').datepicker().on('changeDate', function(ev){
+            var currentTime = new Date();
+            if (ev.date.valueOf() < currentTime.valueOf()){
+                //TODO VALIDATION
+            }
+        });
     });
-});
 </script>
 <h1>Repeat Prescription</h1>
 <br />
