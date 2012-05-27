@@ -5,12 +5,13 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.i18n.Messages
 import model.Prescription
+import play.api.libs.ws.WS
 
 object Prescriptions extends Controller {
 
   val prescription = Form(
     mapping("mobile" -> nonEmptyText,
-      "reminderdate" -> date("dd-mm-yyyy"),
+      "reminderdate" -> date("dd/mm/yyyy"),
       "message" -> nonEmptyText)(Prescription.apply)(Prescription.unapply)
   )
 
@@ -26,19 +27,12 @@ object Prescriptions extends Controller {
         )
       },
       scrip => {
-        sendScheduleRequest(scrip)
+        api.Api.prescriptionReminder(scrip)
         Redirect(routes.Prescriptions.index()).flashing(
           "message" -> "Successfully scheduled prescription reminder"
         )
       }
     )
-  }
-
-  def sendScheduleRequest(ps: Prescription) {
-    // call API to:
-    //  create scheduled SMS to be sent on reminder date
-    //  with body of reminder message as text
-    //  to recipient of prescription mobile
   }
 
 }

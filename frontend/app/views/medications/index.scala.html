@@ -15,18 +15,8 @@
 <script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap-datepicker.js")'></script>
 <script type="text/javascript">
     $(function(){
-        $('#date-picker-start').datepicker().on('changeDate', function(ev){
-            var currentTime = new Date();
-            if (ev.date.valueOf() < currentTime.valueOf()){
-            //TODO VALIDATION
-        }
-        });
-        $('#date-picker-end').datepicker().on('changeDate', function(ev){
-            var currentTime = new Date();
-            if (ev.date.valueOf() < currentTime.valueOf()){
-            //TODO VALIDATION
-            }
-        });
+        $('#date-picker-start').datepicker();
+        $('#date-picker-end').datepicker();
     });
 </script>
 <h1>Medication </h1>
@@ -37,12 +27,12 @@
 <input type="text" name="mobile" id="mobile" class="span3" />
 
 <label>Reminder Start</label>
-<div class="input-append date" id="date-picker-start" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderstart" name="reminderstart" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+<div class="input-append date" id="date-picker-start" data-date="26/05/2012" data-date-format="dd/mm/yyyy"><input class="span3" type="text" id="reminderstart" name="reminderstart" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
 </div>
 
 
 <label>Reminder End</label>
-<div class="input-append date" id="date-picker-end" data-date="26-05-2012" data-date-format="dd-mm-yyyy"><input class="span3" type="text" id="reminderend" name="reminderend" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
+<div class="input-append date" id="date-picker-end" data-date="26/05/2012" data-date-format="dd/mm/yyyy"><input class="span3" type="text" id="reminderend" name="reminderend" value=""><span class="add-on fugly-margin-fix"><i class="icon-th"></i></span>
 </div>
 
 <div id="radiogroup">
