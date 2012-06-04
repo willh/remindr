@@ -61,6 +61,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App.config"/>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Remindr.Model\Remindr.Model.csproj">
       <Project>{2B944161-88D6-42DF-BE61-8B4799B5174D}</Project>
       <Name>Remindr.Model</Name>

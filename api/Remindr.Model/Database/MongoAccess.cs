@@ -1,26 +1,18 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="MongoAccess.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Configuration;
+using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace Remindr.Model.Database
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Configuration;
-    using MongoDB.Driver;
-    using MongoDB.Bson;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class MongoAccess
     {            
-        // TODO : Move connection details to config        
-        private static MongoServer _mongoServer = MongoServer.Create(@"mongodb://RemindrUser:1Password2@staff.mongohq.com:10001/");
+        private static String _connectionString = ConfigurationManager.AppSettings["MONGOHQ_URL"];
+        private static MongoServer _mongoServer = MongoServer.Create(_connectionString);
         private static MongoDatabase _mongoDatabase = _mongoServer.GetDatabase("Remindr");
 
         public static MongoCollection<Reminder> GetReminderCollection()

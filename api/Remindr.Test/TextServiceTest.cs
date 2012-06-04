@@ -1,25 +1,26 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
 using Remindr.Model.Database;
 using Remindr.Twilio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace Remindr.Test
 {
     [TestClass]
     public class TextServiceTest
     {
-        private const string ruairiNo = "+447590488120";
-        private const string kyleNo = "+447812496877";
+        private const string testNumberOne = ConfigurationManager.AppSettings["TestMobileNumber"];
+        private const string testNumberTwo = ConfigurationManager.AppSettings["AltTestMobileNumber"];
 
         [TestMethod]
         public void simple_message_sends_and_reminder_logged()
         {
             var target = new TextService();
 
-            var reminder = new Reminder(ruairiNo, "Simple Message Test", DateTime.Now, "daily", null,
+            var reminder = new Reminder(testNumberOne, "Simple Message Test", DateTime.Now, "daily", null,
                                         DateTime.Now.AddDays(1), "appointment");
 
             var splits = Guid.NewGuid().ToString().Split('-');
@@ -35,13 +36,13 @@ namespace Remindr.Test
         {
             var textService = new TextService();
 
-            var ruairiReminder = new Reminder(ruairiNo, "Ruairi Multiple Message Test", DateTime.Now, "daily", null,
+            var testerOneReminder = new Reminder(testNumberOne, "testerOne Multiple Message Test", DateTime.Now, "daily", null,
                                         DateTime.Now.AddDays(1), "appointment");
 
-            var kyleReminder = new Reminder(kyleNo, "Kyle Multiple Message Test", DateTime.Now, "daily", null,
+            var testerTwoReminder = new Reminder(testNumberTwo, "testerTwo Multiple Message Test", DateTime.Now, "daily", null,
                                         DateTime.Now.AddDays(1), "appointment");
 
-            var patients = new[] {ruairiReminder, kyleReminder};
+            var patients = new[] {testerOneReminder, testerTwoReminder};
 
             foreach (var reminder in patients)
             {
@@ -57,10 +58,10 @@ namespace Remindr.Test
 
             var longMessage = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
-            var ruairiReminder = new Reminder(ruairiNo, longMessage, DateTime.Now, "daily", null,
+            var testerOneReminder = new Reminder(testNumberOne, longMessage, DateTime.Now, "daily", null,
                                         DateTime.Now.AddDays(1), "appointment");
 
-            target.SendMessage(ruairiReminder);
+            target.SendMessage(testerOneReminder);
         }
     }
 }

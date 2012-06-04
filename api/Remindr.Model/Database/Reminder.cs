@@ -1,22 +1,13 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Reminder.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 
 namespace Remindr.Model.Database
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    using MongoDB.Driver.Builders;
-
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class Reminder
     {
         public ObjectId _id { get; set; }

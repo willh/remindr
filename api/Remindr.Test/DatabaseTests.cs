@@ -1,24 +1,21 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="DatabaseTests.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MongoDB.Driver;
+using Remindr.Model.Database;
+using MongoDB.Driver.Builders;
+using Remindr.Model;
 
 namespace Remindr.Test
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using MongoDB.Driver;
-    using Remindr.Model.Database;
-    using MongoDB.Driver.Builders;
-    using Remindr.Model;
-        
     [TestClass]
     public class DatabaseTests
     {
+        private static String _testMobileNumber = ConfigurationManager.AppSettings["TestMobileNumber"];
+
         [TestMethod]
         public void CanRetrieveCollectionsFromDatabase()
         {
@@ -29,10 +26,10 @@ namespace Remindr.Test
         [TestMethod]
         public void CanAddObjectToDatabase()
         {
-            Reminder testReminder = new Reminder("+447812496877", "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now.AddDays(20), "appointment");
+            Reminder testReminder = new Reminder(_testMobileNumber, "test message", DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc), "daily", null, DateTime.Now.AddDays(20), "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
-            var query = Query.EQ("_mobileNumber", "+447812496877");
+            var query = Query.EQ("_mobileNumber", _testMobileNumber);
             MongoCursor<Reminder> reminderCursor = reminderCollection.Find(query);
             Assert.AreEqual(1, reminderCursor.Count());
 
@@ -55,7 +52,7 @@ namespace Remindr.Test
         public void CanAddDaysToSchedule()
         {            
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("+447812496877", "test message", originalDateTime, "daily", null, originalDateTime, "appointment");
+            Reminder testReminder = new Reminder(_testMobileNumber, "test message", originalDateTime, "daily", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);
@@ -67,7 +64,7 @@ namespace Remindr.Test
         public void CanAddWeekToSchedule()
         {
             DateTime originalDateTime = DateTime.Now;
-            Reminder testReminder = new Reminder("+447812496877", "test message", originalDateTime, "weekly", null, originalDateTime, "appointment");
+            Reminder testReminder = new Reminder(_testMobileNumber, "test message", originalDateTime, "weekly", null, originalDateTime, "appointment");
             testReminder.InsertToDb();
             MongoCollection<Reminder> reminderCollection = MongoAccess.GetReminderCollection();
             Reminders.CalculateNextReminderDate(testReminder);            
