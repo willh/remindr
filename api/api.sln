@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Model", "Remindr.Model\Remindr.Model.csproj", "{2B944161-88D6-42DF-BE61-8B4799B5174D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Twilio", "Remindr.Twilio\Remindr.Twilio.csproj", "{42BA4134-5844-413C-A3DA-B94879D129E8}"
@@ -9,12 +9,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Test", "Remindr.Tes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{517B5A8D-E0AC-4D6A-BDC4-78E6E7C1CC30}"
 	ProjectSection(SolutionItems) = preProject
-		api.vsmdi = api.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+		api.vsmdi = api.vsmdi
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Mvc", "Remindr.Mvc\Remindr.Mvc.csproj", "{F1785BDA-4368-44A3-B834-284B307878B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{70BBE9ED-7D1F-4345-9886-97A57C2CFEDA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remindr.Api", "Remindr.Api\Remindr.Api.csproj", "{95213BD6-B64D-409D-997F-1A5FF679DF6E}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -33,6 +41,10 @@ Global
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BA4134-5844-413C-A3DA-B94879D129E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95213BD6-B64D-409D-997F-1A5FF679DF6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95213BD6-B64D-409D-997F-1A5FF679DF6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95213BD6-B64D-409D-997F-1A5FF679DF6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95213BD6-B64D-409D-997F-1A5FF679DF6E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1223C00-F3CC-4FD6-A31B-9C4AF9559027}.Release|Any CPU.ActiveCfg = Release|Any CPU
