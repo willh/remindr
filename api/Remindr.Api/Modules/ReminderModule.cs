@@ -5,6 +5,7 @@ using System.Web;
 using Nancy;
 using Nancy.ModelBinding;
 using Remindr.Api.Models;
+using Remindr.Model;
 using Remindr.Model.Database;
 using Remindr.Twilio;
 
@@ -16,9 +17,12 @@ namespace Remindr.Api.Modules
         
         public ReminderModule()
         {
+
             Get["/message/send"] = SendMessage;
 
             Post["/medication"] = SetupMedicationReminder;
+
+            Delete["/reminder/{id}"] = CancelReminder;
         }
 
         private static DateTime ParseDate(string date)
@@ -27,51 +31,41 @@ namespace Remindr.Api.Modules
             return new DateTime(int.Parse(dateParts[2]), int.Parse(dateParts[1]), int.Parse(dateParts[0]));
         }
 
+
+        Nancy.Response CancelReminder(dynamic parameters)
+        {
+            string id = parameters.id;
+            Reminders.CancelReminder(id);
+            return Response.AsJson(new { success = true });
+        }
+
         private Nancy.Response SendMessage(dynamic parameters)
         {
             string sendTo = parameters.sendTo;
             string textMessage = parameters.textMessage;
 
-            try
-            {
-                service.SendMessage(sendTo, textMessage);
-                return Response.AsJson(new { success = true });
-            }
-            catch
-            {
-                return Response.AsJson(new { success = false });
-            }
+            service.SendMessage(sendTo, textMessage);
+            return Response.AsJson(new { success = true });
         }
 
         private Nancy.Response SetupMedicationReminder(dynamic _)
         {
             Medication medication = this.Bind<Medication>();
 
-            try
+            var reminderStartDate = ParseDate(medication.reminderStartDate);
+            var reminderEndDate = ParseDate(medication.reminderEndDate);
+            var reminder = new Reminder
             {
-                var reminderStartDate = ParseDate(medication.reminderStartDate);
-                var reminderEndDate = ParseDate(medication.reminderEndDate);
-                var reminder = new Reminder
-                {
-                    _nextScheduledReminder = reminderStartDate,
-                    _endReminderDate = reminderEndDate,
-                    _message = medication.message,
-                    _schedule = medication.schedule,
-                    _mobileNumber = medication.mobileNumber
-                };
+                _nextScheduledReminder = reminderStartDate,
+                _endReminderDate = reminderEndDate,
+                _message = medication.message,
+                _schedule = medication.schedule,
+                _mobileNumber = medication.mobileNumber
+            };
 
-                reminder.SaveToDb();
-     
-                return Response.AsJson(new { success = true });
-            }
-            catch(Exception e)
-            {
-                return Response.AsJson(new
-                {
-                    success = false,
-                    message = e.Message
-                });
-            }
+            reminder.SaveToDb();
+ 
+            return Response.AsJson(new { success = true });
         }
     }
 }
