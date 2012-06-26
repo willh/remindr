@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 
 namespace Remindr.Model.Database
 {
     public class Reminder
-    {
-        public ObjectId _id { get; set; }
+    {        
+        public int _id { get; set; }
         public string _mobileNumber { get; set; }
         public string _message { get; set; }
         public DateTime _nextScheduledReminder { get; set; }
@@ -32,35 +26,7 @@ namespace Remindr.Model.Database
         }
 
         public Reminder()
-        {
-            
-        }
-
-        private MongoCollection<Reminder> GetCollection()
-        {
-            return MongoAccess.GetReminderCollection();
-        }
-
-        public string InsertToDb()
-        {
-            MongoCollection<Reminder> reminderCollection = GetCollection();
-            reminderCollection.Insert(this);
-            return _id.ToString();
-        }
-
-        public void SaveToDb()
-        {
-            MongoCollection<Reminder> reminderCollection = GetCollection();
-            reminderCollection.Save(this);
-        }
-
-        public void DeleteFromDb()
-        {
-            MongoCollection<Reminder> reminderCollection = GetCollection();
-            var query = Query.EQ("_id", _id);
-            reminderCollection.Remove(query);
+        {            
         }
     }
-
-
 }

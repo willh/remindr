@@ -1,20 +1,23 @@
 ﻿using System;
-using System.Configuration;
-using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
 using Remindr.Model.Database;
 using Remindr.Twilio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Configuration;
 
+
+// TODO : Redo all of this with DI and anon
 namespace Remindr.Test
 {
     [TestClass]
     public class TextServiceTest
     {
-        private const string testNumberOne = ConfigurationManager.AppSettings["TestMobileNumber"];
-        private const string testNumberTwo = ConfigurationManager.AppSettings["AltTestMobileNumber"];
+        private string testNumberOne = ConfigurationManager.AppSettings["TestMobileNumber"];
+        private string testNumberTwo = ConfigurationManager.AppSettings["AltTestMobileNumber"];
 
+        /*
         [TestMethod]
         public void simple_message_sends_and_reminder_logged()
         {
@@ -58,10 +61,11 @@ namespace Remindr.Test
 
             var longMessage = @"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
-            var testerOneReminder = new Reminder(testNumberOne, longMessage, DateTime.Now, "daily", null,
+             var testerOneReminder = new Reminder(testNumberOne, longMessage, DateTime.Now, "daily", null,
                                         DateTime.Now.AddDays(1), "appointment");
 
             target.SendMessage(testerOneReminder);
         }
+         * */
     }
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Web.Mvc;
-using Remindr.Model;
 using Remindr.Model.Database;
 using Remindr.Mvc.Models;
 using Remindr.Twilio;
-using System.Globalization;
+using Remindr.Model.Ninject;
 
 namespace Remindr.Mvc.Controllers
 {
     [HandleError]
     public class RemindrController : Controller
     {
+        private static IDatabaseAccess _databaseAccess = NinjectProvider.GetInstance<IDatabaseAccess>(); 
 
         [HttpGet]
         public JsonResult SendTextMessage(SendTextMessageRequest request)
@@ -38,7 +38,7 @@ namespace Remindr.Mvc.Controllers
 
             try
             {
-                Reminders.CancelReminder(id);
+                _databaseAccess.CancelReminder(id);                
             }
             catch (Exception e)
             {
@@ -65,8 +65,7 @@ namespace Remindr.Mvc.Controllers
                                        _mobileNumber = prescription.mobileNumber,
                                        _nextScheduledReminder = reminderDate
                                    };
-
-                reminder.SaveToDb();
+                _databaseAccess.SaveReminder(reminder);                
             }
             catch (Exception e)
             {
@@ -96,9 +95,7 @@ namespace Remindr.Mvc.Controllers
                                        _schedule = medication.schedule,
                                        _mobileNumber = medication.mobileNumber
                                    };
-
-                reminder.SaveToDb();
-
+                _databaseAccess.SaveReminder(reminder);
             }
             catch (Exception e)
             {
@@ -127,7 +124,7 @@ namespace Remindr.Mvc.Controllers
                                            _mobileNumber = appointment.mobile,
                                            _nextScheduledReminder = reminderDate.AddDays(-1)
                                        };
-                    reminder.SaveToDb();
+                    _databaseAccess.SaveReminder(reminder);
                 }
 
                 if (appointment.oneWeekNotification)
@@ -138,7 +135,7 @@ namespace Remindr.Mvc.Controllers
                                            _message = appointment.message,
                                            _nextScheduledReminder = reminderDate.AddDays(-7)
                                        };
-                    reminder.SaveToDb();
+                    _databaseAccess.SaveReminder(reminder);
                 }
             }
             catch (Exception e)

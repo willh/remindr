@@ -1,21 +1,26 @@
-﻿using System;
-using System.Configuration;
-using System.IO;
+﻿using System.IO;
 using System.Net;
-using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using Remindr.Mvc.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting.Web;
 using Remindr.Mvc.Models;
+using System.Web.Mvc;
 
 namespace Remindr.Test
 {
     
+    
     [TestClass()]
     public class RemindrControllerTest
     {
+
         private TestContext _testContextInstance;
 
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
         public TestContext TestContext
         {
             get
@@ -29,12 +34,15 @@ namespace Remindr.Test
         }
 
         [TestMethod()]
+        //[HostType("ASP.NET")]
+        //[AspNetDevelopmentServerHost("C:\\NHSHackDay\\nhshackday\\api\\Remindr.Mvc", "/")]
+        //[UrlToTest("http://localhost:55849/")]
         public void SendTextMessageTest()
         {
             var target = new RemindrController();
             var request = new SendTextMessageRequest
                                                  {
-                                                     SendTo = ConfigurationManager.AppSettings["TestMobileNumber"],
+                                                     SendTo = "+447590488120",
                                                      TextMessage = "integration test"
                                                  };
 

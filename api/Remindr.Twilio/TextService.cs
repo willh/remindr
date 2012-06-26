@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Configuration;
 using Remindr.Model.Database;
+using Remindr.Model.Services;
 using Twilio;
 
 namespace Remindr.Twilio
 {
-    public class TextService
+    public class TextService : ITextService
     {
-        private const string From = ConfigurationManager.AppSettings["TwilioFromNumber"];
-        private const string AccountSid = ConfigurationManager.AppSettings["TwilioAccountSid"];
-        private const string AuthToken = ConfigurationManager.AppSettings["TwilioAuthToken"];
+        private string From = ConfigurationManager.AppSettings["TwilioFromNumber"];
+        private string AccountSid = ConfigurationManager.AppSettings["TwilioAccountSid"];
+        private string AuthToken = ConfigurationManager.AppSettings["TwilioAuthToken"];
      
         public void SendMessage(Reminder reminder)
         {
@@ -43,8 +44,7 @@ namespace Remindr.Twilio
 
         private void LogTextResponse(SMSMessage message, Reminder reminder)
         {
-            var reminderLog = new ReminderLog(reminder._id, reminder._mobileNumber, reminder._message, reminder._nextScheduledReminder, message.Status, reminder._kind);
-            reminderLog.InsertToDb();
+            var reminderLog = new ReminderLog(reminder._id.ToString(), reminder._mobileNumber, reminder._message, reminder._nextScheduledReminder, message.Status, reminder._kind);            
         }
     }
 }

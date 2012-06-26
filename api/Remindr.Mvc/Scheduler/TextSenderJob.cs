@@ -1,7 +1,8 @@
 using System;
 using Quartz;
-using Remindr.Model;
-using Remindr.Twilio;
+using Remindr.Model.Services;
+using Remindr.Model.Database;
+using Remindr.Model.Ninject;
 
 namespace Remindr.Mvc.Scheduler
 {
@@ -9,9 +10,10 @@ namespace Remindr.Mvc.Scheduler
     {
         public void Execute(IJobExecutionContext context)
         {
-            var reminders = Reminders.GetRemindersForDate(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc));
-            
-            var textService = new TextService();
+            IDatabaseAccess databaseAccess = NinjectProvider.GetInstance<IDatabaseAccess>();
+            var reminders = databaseAccess.GetRemindersForDate(DateTime.SpecifyKind(DateTime.Now.Date, DateTimeKind.Utc));
+
+            var textService = NinjectProvider.GetInstance<ITextService>();            
 
             foreach (var reminder in reminders)
             {

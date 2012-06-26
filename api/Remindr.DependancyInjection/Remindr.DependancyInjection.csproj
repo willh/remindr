@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2B944161-88D6-42DF-BE61-8B4799B5174D}</ProjectGuid>
+    <ProjectGuid>{5C5FFCE4-DA4A-44C2-9886-2999D7B5CBC9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Remindr.Model</RootNamespace>
-    <AssemblyName>Remindr.Model</AssemblyName>
+    <RootNamespace>Remindr.DependancyInjection</RootNamespace>
+    <AssemblyName>Remindr.DependancyInjection</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -32,14 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\Lib\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\Lib\MongoDB.Driver.dll</HintPath>
+    <Reference Include="Ninject">
+      <HintPath>..\Lib\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,15 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\IDatabaseAccess.cs" />
-    <Compile Include="Database\Mongo\MongoAccess.cs" />
-    <Compile Include="Database\Reminder.cs" />
-    <Compile Include="Database\ReminderLog.cs" />
+    <Compile Include="Ninject\NinjectProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ITextService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reminder\" />
+    <ProjectReference Include="..\Remindr.Model\Remindr.Model.csproj">
+      <Project>{2B944161-88D6-42DF-BE61-8B4799B5174D}</Project>
+      <Name>Remindr.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Remindr.Twilio\Remindr.Twilio.csproj">
+      <Project>{42BA4134-5844-413C-A3DA-B94879D129E8}</Project>
+      <Name>Remindr.Twilio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

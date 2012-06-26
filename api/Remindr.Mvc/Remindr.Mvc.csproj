@@ -105,6 +105,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Remindr.DependancyInjection\Remindr.DependancyInjection.csproj">
+      <Project>{5C5FFCE4-DA4A-44C2-9886-2999D7B5CBC9}</Project>
+      <Name>Remindr.DependancyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Remindr.Model\Remindr.Model.csproj">
       <Project>{2B944161-88D6-42DF-BE61-8B4799B5174D}</Project>
       <Name>Remindr.Model</Name>

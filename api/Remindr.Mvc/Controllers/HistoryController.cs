@@ -1,30 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Remindr.Mvc.Models;
-using Remindr.Model;
+using Remindr.Model.Database;
+using Remindr.Model.Ninject;
 
 namespace Remindr.Mvc.Controllers
 {
     public class HistoryController : Controller
     {
+        IDatabaseAccess _databaseAccess = NinjectProvider.GetInstance<IDatabaseAccess>();
         [HttpGet]
         public JsonResult GetHistory(GetHistoryRequest request)
         {
             if (!string.IsNullOrEmpty(request.Id))
             {
-                return Json(Reminders.GetHistoryForNumber(request.Id), JsonRequestBehavior.AllowGet);
+                return Json(_databaseAccess.GetHistoryForNumber(request.Id), JsonRequestBehavior.AllowGet);
             }
 
             if (!string.IsNullOrEmpty(request.Number))
             {
                 var countryCodeAndNumber = "+44" + request.Number.TrimStart('0');
-                return Json(Reminders.GetHistoryForNumber(countryCodeAndNumber), JsonRequestBehavior.AllowGet);
+                return Json(_databaseAccess.GetHistoryForNumber(countryCodeAndNumber), JsonRequestBehavior.AllowGet);
             }
 
-            return Json(Reminders.GetAllSentReminders(), JsonRequestBehavior.AllowGet);
+            return Json(_databaseAccess.GetAllSentReminders(), JsonRequestBehavior.AllowGet);
         }
     }
 }

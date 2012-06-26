@@ -3,7 +3,7 @@ package api
 import java.util.Date
 import play.api.libs.ws.WS
 import model._
-
+import play.api.{Play, Configuration}
 
 object Api {
 
@@ -15,6 +15,8 @@ object Api {
     Reminder(4, "Dr Newton", "02890 123456", Kind.Appointment, new Date)
   )
 
+  var serviceUrl = Play.current.configuration.getString("reminder.serviceurl").get
+
   def history: List[Reminder] = data
 
   def history(number: String): List[Reminder] = data.filter(_.number.equals(number))
@@ -25,8 +27,8 @@ object Api {
 
   def get(id: Int) = data.find(_.id == id)
 
-  def medicationReminder(med: Medication) = {
-    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Medication").post(Map(
+  def medicationReminder(med: Medication) {
+    WS.url(serviceUrl + "/Remindr/Medication").post(Map(
       "mobileNumber" -> Seq(med.mobile),
       "reminderStartDate" -> Seq(formatDate(med.start)),
       "reminderEndDate" -> Seq(formatDate(med.end)),
@@ -35,8 +37,8 @@ object Api {
     ))
   }
 
-  def prescriptionReminder(ps: Prescription) = {
-    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Prescription").post(Map(
+  def prescriptionReminder(ps: Prescription) {
+    WS.url(serviceUrl + "/Remindr/Prescription").post(Map(
       "mobileNumber" -> Seq(ps.mobile),
       "reminderDate" -> Seq(formatDate(ps.reminderdate)),
       "message" -> Seq(ps.message)
@@ -44,7 +46,7 @@ object Api {
   }
 
   def appointment(app: Appointment) = {
-    WS.url("http://nhs-hackday-backend.apphb.com/Remindr/Appointment").post(Map(
+    WS.url(serviceUrl + "/Remindr/Appointment").post(Map(
       "message"             -> Seq(app.message),
       "mobile"              -> Seq(app.mobile),
       "oneDayNotification"  -> Seq(app.oneDayNotification.toString),
